@@ -6,7 +6,22 @@
     align-items center
     justify-items center
     flex-wrap wrap
-    &_left-side, &_right-side, &_speed-playbackrate, &_volume, &_title
+    z-index 9
+    position relative
+    &_left-side,
+    &_right-side,
+    &_speed-playbackrate label,
+    &_volume,
+    &_title,
+    &_volume_button,
+    &_volume_button_active,
+    &_search_button,
+    &_search_button_active,
+    &_volume_container,
+    &_search_container,
+    &_config_container,
+    &_config_button,
+    &_config_button_active
         display flex
         align-items center
         flex-wrap wrap
@@ -35,6 +50,8 @@
     &_speed-playbackrate
         @extends .pv-glass
         border-radius 20px
+        position relative
+        transition box-shadow 220ms ease
         &_figure
             width 38px
             padding 0 0 0.2em 0
@@ -48,18 +65,140 @@
             font-size 0.9rem
             font-weight bold
             line-height 0.9rem
+        &_options
+            background-color #fff
+            position absolute
+            width 100%
+            left 0
+            bottom 110%
+            border-radius 16px
+            padding 0.85rem
+            transition 220ms transform ease, 220ms opacity linear
+            transform-origin center bottom
+            overflow hidden
+        &_list
+            width 100%
+        &_item
+            font-size 0.845rem
+            padding 0.255em 0
+            transition color 120ms ease, opacity 320ms ease
+            & > label
+                cursor pointer
+            &:hover
+                color rgba(0,0,0, 0.5)
+        &_trigger
+            &:not(:checked) ~ .puravita-buttons_speed-playbackrate_options
+                opacity 0
+                transform scaleY(0)
+            &:not(:checked) ~ .puravita-buttons_speed-playbackrate_item
+                opacity 0
+                transition opacity 620ms ease
+        &_button-mask
+            cursor pointer
+            & *
+                cursor pointer
+    &_speed-playbackrate_trigger, &_volume_trigger, &_search_trigger, &_config_trigger
+        display none
     &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title
         height 34px
         margin 0 0 0 0.645em
+    &_volume_button, &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title, &_volume_container, &_search_container, &_config_button, &_config_button_active
         cursor pointer
+    &_speed-playbackrate label
+        height 100%
     &_volume_button, &_search_button, &_subtitles_button, &_chomecast_button, &_aside_button, &_config_button
         @extends .pv-glass
+    &_volume_button, &_volume_button_active, &_search_button, &_search_button_active, &_subtitles_button, &_chomecast_button, &_aside_button, &_config_button, , &_config_button_active
         border-radius 100%
         width 34px
         height 34px
         & svg
             width 16px
-            margin 0 auto
+            margin 0 auto    
+    &_volume_container, &_search_container, &_config_container
+        border-radius 60px
+        width 34px
+        transition background-color 220ms ease, width 120ms ease
+        position relative
+    &_volume_button, &_volume_button_active, &_search_button, &_search_button_active, &_config_button_active
+        transition 200ms linear opacity 
+    &_volume_button_active, &_search_button_active
+        position absolute
+        top 0
+        left 0
+        opacity 0
+    &_config_button_active
+        position absolute
+        top 0
+        right 0
+        // opacity 0
+    &_volume_trigger, &_search_trigger
+        &:checked ~ .puravita-buttons_volume_container, &:checked ~ .puravita-buttons_search_container
+            width 184px
+            background-color #FFFFFF
+            & .puravita-buttons_volume_button, & .puravita-buttons_search_button
+                opacity 0
+                &_active
+                    opacity 1
+        &:not(:checked) ~ .puravita-buttons_volume_container, &:not(:checked) ~ .puravita-buttons_search_container
+            & .puravita-buttons_volume_button_input-box, & .puravita-buttons_search_button_input-box
+                transition-delay 0
+                transition all 20ms linear
+                width 0
+                height 0
+                opacity 0
+    &_volume_button_input-box, &_search_button_input-box
+        width 120px
+        height 34px
+        margin 0 5px
+        overflow hidden
+        transition-delay 200ms
+        transition all 120ms linear
+    &_volume_button_input
+        height 34px
+        margin 0
+        -webkit-appearance none
+        width 100%
+        cursor pointer
+        &:focus
+            outline none
+            &::-webkit-slider-runnable-track
+                background-color #000000
+            &::-moz-range-track
+                background-color #000000
+        &::-webkit-slider-runnable-track
+            transition background-color 220ms ease
+            background-color rgba(0, 0, 0, 0.4)
+            height 2px
+            border-radius 4px      
+        &::-webkit-slider-thumb
+            background-color #000000
+            -webkit-appearance none
+            width 16px
+            height 16px
+            border-radius 100%
+            margin -7px 0 0 0
+        &::-moz-range-track
+            transition background-color 220ms ease
+            background-color rgba(0, 0, 0, 0.4)
+            height 2px
+            border-radius 4px
+        &::-moz-range-thumb
+            background-color #000000
+            -webkit-appearance none
+            width 16px
+            height 16px
+            border-radius 100%
+            margin -7px 0 0 0
+            border none
+    &_search_button_input
+        width 90%
+        margin 0 auto
+        height 34px
+        padding 0 0.62rem
+        font-size 0.9rem
+        &:focus
+            outline none
     &_chomecast_button, &_aside_button
         margin 0 0.645em 0 0
     &_title

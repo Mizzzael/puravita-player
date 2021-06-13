@@ -10,25 +10,23 @@
         display flex
         align-items center
         flex-wrap wrap
-    &_left-side, &_right-side
-        overflow hidden
     &_left-side
-        width 60%
+        width 70%
     &_right-side
-        width 40%
+        width 30%
     &_left-side, &_speed-playbackrate, &_volume, &_title   
         justify-content start
     &_right-side
         justify-content flex-end
     &_btn-play
         @extends .pv-glass
-        width 42px
-        height 42px
+        width 34px
+        height 34px
         border-radius 100%
         position relative
         & svg
             position absolute
-            width 60%
+            width 40%
             top 0
             bottom 0
             left 0
@@ -47,23 +45,54 @@
             text-align left
             width 40px
             color #ffffff
-            font-size 1rem
+            font-size 0.9rem
             font-weight bold
-            line-height 0.8rem
+            line-height 0.9rem
     &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title
-        height 42px
-        margin 0 0 0 0.845em
+        height 34px
+        margin 0 0 0 0.645em
         cursor pointer
     &_volume_button, &_search_button, &_subtitles_button, &_chomecast_button, &_aside_button, &_config_button
         @extends .pv-glass
         border-radius 100%
-        width 42px
-        height 42px
+        width 34px
+        height 34px
         & svg
-            width 20px
+            width 16px
             margin 0 auto
     &_chomecast_button, &_aside_button
-        margin 0 0.845em 0 0
+        margin 0 0.645em 0 0
     &_title
-        font-size 0.95rem
+        font-size 0.9rem
         color #ffffff
+        overflow hidden
+
+.puravita-controller-sidebar 
+    max-width 80%
+    & .puravita-buttons
+        &_btn-play
+            width 30px
+            height 30px
+            & svg
+                width 30%
+        &_speed-playbackrate
+            &_figure
+                width 38px
+                padding 0 0 0.2em 0
+            &_label
+                width 30px
+                font-size 0.733rem
+        &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title, &_config
+            height 30px
+        &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title
+            margin 0 0 0 0.445em
+        &_chomecast_button, &_aside_button
+            margin 0 0.445em 0 0
+        &_volume_button, &_search_button, &_subtitles_button, &_chomecast_button, &_aside_button, &_config_button
+            width 30px
+            height 30px
+            & svg
+                width 14px
+                margin 0 auto
+        &_title
+            font-size 0.8rem

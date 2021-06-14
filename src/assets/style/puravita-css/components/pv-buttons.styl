@@ -21,10 +21,17 @@
     &_search_container,
     &_config_container,
     &_config_button,
-    &_config_button_active
+    &_config_button_active,
+    &_config_button_input-box
         display flex
         align-items center
         flex-wrap wrap
+    &_volume_container,
+    &_search_container,
+    &_config_container
+        height 34px
+    &_config_container
+        justify-content flex-end
     &_left-side
         width 70%
     &_right-side
@@ -108,7 +115,7 @@
         height 100%
     &_volume_button, &_search_button, &_subtitles_button, &_chomecast_button, &_aside_button, &_config_button
         @extends .pv-glass
-    &_volume_button, &_volume_button_active, &_search_button, &_search_button_active, &_subtitles_button, &_chomecast_button, &_aside_button, &_config_button, , &_config_button_active
+    &_volume_button, &_volume_button_active, &_search_button, &_search_button_active, &_subtitles_button, &_chomecast_button, &_aside_button, &_config_button, &_config_button_active
         border-radius 100%
         width 34px
         height 34px
@@ -127,32 +134,66 @@
         top 0
         left 0
         opacity 0
+    &_config
+        position relative
+        &_trigger
+            &:not(:checked) ~ .puravita-buttons_config_button_input-box_list-box .puravita-buttons_config_button_input-box_options
+                opacity 0
+                transform scaleY(0)
+            &:not(:checked) ~ .puravita-buttons_config_button_input-box_item
+                opacity 0
+                transition opacity 620ms ease
     &_config_button_active
         position absolute
         top 0
         right 0
-        // opacity 0
-    &_volume_trigger, &_search_trigger
-        &:checked ~ .puravita-buttons_volume_container, &:checked ~ .puravita-buttons_search_container
+        opacity 0
+    &_config_button_input-box
+        cursor pointer
+        &_text
+            padding 0 0.15rem
+            font-size 0.75rem
+        &_options
+            background-color #fff
+            position absolute
+            width 100%
+            left 0
+            bottom 110%
+            border-radius 16px
+            padding 0.85rem
+            transition 220ms transform ease, 220ms opacity linear
+            transform-origin center bottom
+            overflow hidden
+        &_item
+            font-size 0.845rem
+            padding 0.255em 0
+            transition color 120ms ease, opacity 320ms ease
+            & > label
+                cursor pointer
+            &:hover
+                color rgba(0,0,0, 0.5)
+        
+    &_volume_trigger, &_search_trigger, &_config_trigger
+        &:checked ~ .puravita-buttons_volume_container, &:checked ~ .puravita-buttons_search_container, &:checked ~ .puravita-buttons_config_container
             width 184px
             background-color #FFFFFF
-            & .puravita-buttons_volume_button, & .puravita-buttons_search_button
+            & .puravita-buttons_volume_button, & .puravita-buttons_search_button, & .puravita-buttons_config_button
                 opacity 0
                 &_active
                     opacity 1
-        &:not(:checked) ~ .puravita-buttons_volume_container, &:not(:checked) ~ .puravita-buttons_search_container
-            & .puravita-buttons_volume_button_input-box, & .puravita-buttons_search_button_input-box
-                transition-delay 0
+        &:not(:checked) ~ .puravita-buttons_volume_container, &:not(:checked) ~ .puravita-buttons_search_container, &:not(:checked) ~ .puravita-buttons_config_container
+            & .puravita-buttons_volume_button_input-box, & .puravita-buttons_search_button_input-box, & .puravita-buttons_config_button_input-box
+                transition-delay 1ms
                 transition all 20ms linear
                 width 0
                 height 0
                 opacity 0
-    &_volume_button_input-box, &_search_button_input-box
+    &_volume_button_input-box, &_search_button_input-box, &_config_button_input-box
         width 120px
         height 34px
         margin 0 5px
         overflow hidden
-        transition-delay 200ms
+        transition-delay 400ms
         transition all 120ms linear
     &_volume_button_input
         height 34px
@@ -221,13 +262,18 @@
             &_label
                 width 30px
                 font-size 0.733rem
-        &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title, &_config
+        
+        &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title, &_config,
+        &_volume_button_input-box, &_search_button_input-box, &_config_button_input-box, &_search_button_input, &_volume_button_input      
             height 30px
         &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title
             margin 0 0 0 0.445em
         &_chomecast_button, &_aside_button
             margin 0 0.445em 0 0
-        &_volume_button, &_search_button, &_subtitles_button, &_chomecast_button, &_aside_button, &_config_button
+        &_volume_button, &_volume_button_active, &_search_button, &_search_button_active, &_subtitles_button, &_chomecast_button, &_aside_button, &_config_button, &_config_button_active,
+        &_volume_container,
+        &_search_container,
+        &_config_container
             width 30px
             height 30px
             & svg

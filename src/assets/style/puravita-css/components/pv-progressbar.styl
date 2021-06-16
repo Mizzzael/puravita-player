@@ -81,3 +81,40 @@
             bottom 0
         &:hover
             transform scale(1.12)
+
+.puravita-player-screen-480p
+    & .puravita-progressbar
+        &_bar_progress_dot
+            width 18px
+            height 18px
+            top -8px
+            right -8px
+            &:after
+                width 14px
+                height 14px
+        &_markup-timeline
+            width 18px
+            height 18px
+            & svg
+                width 14px
+
+.puravita-player-screen-360p, .puravita-player-screen-mobile
+    & .puravita-progressbar
+        &_bar_progress_dot
+            width 14px
+            height 14px
+            top -6px
+            right -6px
+            &:after
+                width 10px
+                height 10px
+        &_markup-timeline
+            width 14px
+            height 14px
+            & svg
+                width 10px
+
+.puravita-player-screen-mobile
+    & .puravita-progressbar
+        &_bar
+            width calc(100% - 70px)

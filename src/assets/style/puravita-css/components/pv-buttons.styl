@@ -281,3 +281,307 @@
                 margin 0 auto
         &_title
             font-size 0.8rem
+
+
+.puravita-player-screen-480p
+    max-width 80%
+    & .puravita-buttons
+        &_btn-play
+            width 30px
+            height 30px
+            & svg
+                width 30%
+        &_speed-playbackrate
+            &_figure
+                width 38px
+                padding 0 0 0.2em 0
+            &_label
+                width 30px
+                font-size 0.733rem
+        
+        &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title, &_config,
+        &_volume_button_input-box, &_search_button_input-box, &_config_button_input-box, &_search_button_input, &_volume_button_input      
+            height 30px
+        &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title
+            margin 0 0 0 0.445em
+        &_chomecast_button, &_aside_button
+            margin 0 0.445em 0 0
+        &_volume_button, &_volume_button_active, &_search_button, &_search_button_active, &_subtitles_button, &_chomecast_button, &_aside_button, &_config_button, &_config_button_active,
+        &_volume_container,
+        &_search_container,
+        &_config_container
+            width 30px
+            height 30px
+            & svg
+                width 14px
+                margin 0 auto
+        &_title
+            font-size 0.8rem
+
+        &_volume_trigger, &_search_trigger, &_config_trigger
+            &:checked ~ .puravita-buttons_volume_container, &:checked ~ .puravita-buttons_search_container, &:checked ~ .puravita-buttons_config_container
+                width 140px
+        &_config_button_input-box
+            & svg
+                display none
+        &_volume_button_input-box, &_search_button_input-box, &_config_button_input-box
+            width 100px
+            height 30px
+            margin 0 3px
+
+        &_volume_button_input
+            height 30px
+            width 85%
+            &::-webkit-slider-thumb
+                width 14px
+                height 14px
+                margin -6px 0 0 0
+            &::-moz-range-track
+                height 2px
+            &::-moz-range-thumb
+                width 14px
+                height 14px
+                margin -6px 0 0 0
+
+        &_title
+            font-size 0.60rem
+    & .puravita-controller-sidebar 
+        max-width 80%
+        & .puravita-buttons
+            &_btn-play
+                width 22px
+                height 22px
+                & svg
+                    width 36%
+            &_speed-playbackrate
+                &_figure
+                    width 30px
+                    padding 0 0 0.2em 0
+                    & svg
+                        width 14px
+                &_label
+                    width 30px
+                    font-size 0.522rem
+            
+            &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title, &_config,
+            &_volume_button_input-box, &_search_button_input-box, &_config_button_input-box, &_search_button_input, &_volume_button_input      
+                height 22px
+            &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title
+                margin 0 0 0 0.445em
+            &_chomecast_button, &_aside_button
+                margin 0 0.445em 0 0
+            &_volume_button, &_volume_button_active, &_search_button, &_search_button_active, &_subtitles_button, &_chomecast_button, &_aside_button, &_config_button, &_config_button_active,
+            &_volume_container,
+            &_search_container,
+            &_config_container
+                width 22px
+                height 22px
+                & svg
+                    width 10px
+                    height 10px
+                    margin 0 auto
+            &_title
+                font-size 0.6rem
+
+            &_subtitles_button
+                display block
+
+            &_volume_trigger, &_search_trigger, &_config_trigger
+                &:checked ~ .puravita-buttons_volume_container, &:checked ~ .puravita-buttons_search_container, &:checked ~ .puravita-buttons_config_container
+                    width 100px
+
+            &_volume_button_input-box, &_search_button_input-box, &_config_button_input-box
+                width 60px
+                height 22px
+                margin 0 3px
+            &_volume_button_input
+                height 22px
+                &::-webkit-slider-thumb
+                    width 12px
+                    height 12px
+                    margin -5px 0 0 0
+                &::-moz-range-track
+                    height 2px
+                &::-moz-range-thumb
+                    width 12px
+                    height 12px
+                    margin -5px 0 0 0
+            &_search_button_input
+                width 90%
+                height 22px
+                display block
+                padding 0 0.6em
+                font-size 0.6rem
+
+            &_config_button_input-box
+                cursor pointer
+                &_text
+                    font-size 0.46rem
+                & svg
+                    display none
+                &_options
+                    width 100%
+                    bottom 110%
+                    padding 0.85rem
+
+.puravita-player-screen-360p
+    max-width 80%
+    & .puravita-buttons
+        &_btn-play
+            width 24px
+            height 24px
+            & svg
+                width 38%
+        &_speed-playbackrate
+            &_figure
+                width 28px
+                padding 0 0 0.2em 0
+                & svg
+                    width 20px
+            &_label
+                width 28px
+                font-size 0.733rem
+        
+        &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title, &_config,
+        &_volume_button_input-box, &_search_button_input-box, &_config_button_input-box, &_search_button_input, &_volume_button_input      
+            height 24px
+        &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title
+            margin 0 0 0 0.445em
+        &_chomecast_button, &_aside_button
+            margin 0 0.445em 0 0
+        &_aside_button
+            display none
+        &_volume_button, &_volume_button_active, &_search_button, &_search_button_active, &_subtitles_button, &_chomecast_button, &_aside_button, &_config_button, &_config_button_active,
+        &_volume_container,
+        &_search_container,
+        &_config_container
+            width 24px
+            height 24px
+            & svg
+                width 12px
+                height 12px
+                margin 0 auto
+        &_title
+            font-size 0.6rem
+
+        &_volume_trigger, &_search_trigger, &_config_trigger
+            &:checked ~ .puravita-buttons_volume_container, &:checked ~ .puravita-buttons_search_container, &:checked ~ .puravita-buttons_config_container
+                width 120px
+        &_config_button_input-box
+            & svg
+                display none
+        &_volume_button_input-box, &_search_button_input-box, &_config_button_input-box
+            width 80px
+            height 24px
+            margin 0 3px
+
+        &_volume_button_input
+            height 24px
+            width 85%
+            &::-webkit-slider-thumb
+                width 10px
+                height 10px
+                margin -4px 0 0 0
+            &::-moz-range-track
+                height 2px
+            &::-moz-range-thumb
+                width 10px
+                height 10px
+                margin -4px 0 0 0
+
+        &_title
+            font-size 0.50rem
+        &_search_button_input
+            font-size 0.62rem
+            display block
+        &_config_button_input-box
+            &_text
+                font-size 0.46rem
+    & .puravita-controller-sidebar 
+        max-width 100%
+
+.puravita-player-screen-mobile
+    max-width 80%
+    & .puravita-buttons
+        &_btn-play
+            width 20px
+            height 20px
+            & svg
+                width 38%
+        &_speed-playbackrate
+            &_figure
+                width 0
+                padding 0 0 0.2em 0
+                & svg
+                    display none
+            &_label
+                width 40px
+                text-align center
+                padding 0 0.3rem
+                font-size 0.733rem
+            &_options
+                padding 0 0 0 0
+                border-radius 8px
+            &_item
+                & label
+                    text-align center
+                    display block
+        
+        &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title, &_config,
+        &_volume_button_input-box, &_search_button_input-box, &_config_button_input-box, &_search_button_input, &_volume_button_input      
+            height 20px
+        &_volume, &_speed-playbackrate, &_search, &_subtitles, &_title
+            margin 0 0 0 0.445em
+        &_chomecast_button, &_aside_button
+            margin 0 0.445em 0 0
+        &_aside_button, &_chomecast_button, &_config_button, &_title, &_subtitles_button, &_search_button, &_title,&_right-side
+            display none
+        &_left-side
+            max-width 100%
+            width 100%
+        &_volume_button, &_volume_button_active, &_search_button, &_search_button_active, &_subtitles_button, &_chomecast_button, &_aside_button, &_config_button, &_config_button_active,
+        &_volume_container,
+        &_search_container,
+        &_config_container
+            width 20px
+            height 20px
+            & svg
+                width 12px
+                height 12px
+                margin 0 auto
+        &_title
+            font-size 0.6rem
+        &_volume_trigger, &_search_trigger, &_config_trigger
+            &:checked ~ .puravita-buttons_volume_container, &:checked ~ .puravita-buttons_search_container, &:checked ~ .puravita-buttons_config_container
+                width 120px
+        &_config_button_input-box
+            & svg
+                display none
+        &_volume_button_input-box, &_search_button_input-box, &_config_button_input-box
+            width 80px
+            height 20px
+            margin 0 3px
+
+        &_volume_button_input
+            height 20px
+            width 85%
+            &::-webkit-slider-thumb
+                width 10px
+                height 10px
+                margin -4px 0 0 0
+            &::-moz-range-track
+                height 2px
+            &::-moz-range-thumb
+                width 10px
+                height 10px
+                margin -4px 0 0 0
+        
+        &_search_button_input
+            font-size 0.62rem
+            display block
+        &_config_button_input-box
+            &_text
+                font-size 0.46rem
+    & .puravita-controller-sidebar 
+        max-width 100%
+        

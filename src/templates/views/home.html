@@ -11,8 +11,62 @@
         <section class="container mx-auto my-2">
             <section class="puravita-player puravita-player-screen-720p /*puravita-player-screen-480p /*puravita-player-screen-360p /*puravita-player-screen-mobile">
                 <section class="puravita-canvas">
+                    <section class="puravita-canvas_animation">
+                        <svg class="puravita-canvas_animation_distort" width="350" height="450" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <filter id="c" data-type="displacementMap">
+                                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.005" numOctaves="5" seed="2" result="noise"></feTurbulence>
+                                <feDisplacementMap in="SourceGraphic" in2="noise" scale="120" xChannelSelector="R" yChannelSelector="B" filterUnits="userSpaceOnUse"></feDisplacementMap>
+                            </filter>
+                            <image filter="url(#c)" class="distort__img" x="0" y="0" xlink:href="http://localhost:8080/images/banner.jpg" height="350" width="250" data-svg-origin="175 225" transform="matrix(1,0,0,1,0,0)" style="transform-origin: 0px 0px;"></image>
+                        </svg>
+                    </section>
                     <section class="puravita-canvas_subtitle_controls">
-
+                        <div class="puravita-canvas_subtitle_controls_panel">
+                            <header class="puravita-canvas_subtitle_controls_panel_header">
+                                <span>
+                                    Ajustes de legenda
+                                </span>
+                            </header>
+                            <section class="puravita-canvas_subtitle_controls_panel_item">
+                                <div class="puravita-canvas_subtitle_controls_panel_item-label">
+                                    Cor
+                                </div>
+                                <div class="puravita-canvas_subtitle_controls_panel_item-color">
+                                    <div class="puravita-canvas_subtitle_controls_radio">
+                                        <input checked type="radio" name="subtitle-color" id='colors' />
+                                        <label class="puravita-canvas_subtitle_controls_radio_white" for="colors">
+                                            <i></i> Branca
+                                        </label>
+                                    </div>
+                                    <div class="puravita-canvas_subtitle_controls_radio">
+                                        <input type="radio" name="subtitle-color" id='yellow' />
+                                        <label class="puravita-canvas_subtitle_controls_radio_yellow" for="yellow">
+                                            <i></i> Amarela
+                                        </label>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="puravita-canvas_subtitle_controls_panel_item">
+                                <div class="puravita-canvas_subtitle_controls_panel_item-label">
+                                    Tamanho
+                                </div>
+                                <div class="puravita-canvas_subtitle_controls_panel_item-range">
+                                    <span class="puravita-canvas_subtitle_controls_panel_item-small-letter">
+                                        A
+                                    </span>
+                                    <div class="puravita-canvas_subtitle_controls_panel_item-range-box">
+                                        <i class="puravita-canvas_subtitle_controls_panel_item-range-box_pipe"></i>
+                                        <i class="puravita-canvas_subtitle_controls_panel_item-range-box_pipe"></i>
+                                        <i class="puravita-canvas_subtitle_controls_panel_item-range-box_pipe"></i>
+                                        <i class="puravita-canvas_subtitle_controls_panel_item-range-box_pipe"></i>                                        
+                                        <input class="puravita-canvas_subtitle_controls_panel_item-input" type="range">
+                                    </div>
+                                    <span class="puravita-canvas_subtitle_controls_panel_item-big-letter">
+                                        A
+                                    </span>
+                                </div>
+                            </section>
+                        </div>
                     </section>
                 </section>
                 <section class="puravita-chat-sidebar /*puravita-chat-sidebar-show">

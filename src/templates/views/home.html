@@ -9,9 +9,10 @@
 <body>
     <section class="w-full">
         <section class="container mx-auto my-2">
-            <section class="puravita-player puravita-player-screen-720p /*puravita-player-screen-480p /*puravita-player-screen-360p /*puravita-player-screen-mobile">
+            <section id="puravita-player" class="puravita-player puravita-player-screen-720p /*puravita-player-screen-480p /*puravita-player-screen-360p /*puravita-player-screen-mobile">
                 <section class="puravita-canvas">
-                    <section class="puravita-canvas_animation">
+                    <section class="puravita-canvas_glass"></section>                    
+                    <section class="puravita-canvas_animation puravita-canvas_animation_hide">
                         <svg class="puravita-canvas_animation_distort" width="350" height="450" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <filter id="c" data-type="displacementMap">
                                 <feTurbulence type="fractalNoise" baseFrequency="0.01 0.005" numOctaves="5" seed="2" result="noise"></feTurbulence>
@@ -20,7 +21,7 @@
                             <image filter="url(#c)" class="distort__img" x="0" y="0" xlink:href="http://localhost:8080/images/banner.jpg" height="350" width="250" data-svg-origin="175 225" transform="matrix(1,0,0,1,0,0)" style="transform-origin: 0px 0px;"></image>
                         </svg>
                     </section>
-                    <section class="puravita-canvas_subtitle_controls">
+                    <section class="puravita-canvas_subtitle_controls puravita-canvas_subtitle_controls_hide">
                         <div class="puravita-canvas_subtitle_controls_panel">
                             <header class="puravita-canvas_subtitle_controls_panel_header">
                                 <span>
@@ -68,8 +69,13 @@
                             </section>
                         </div>
                     </section>
+                    <section class="puravita-canvas_video">
+                        <video id="video-puravita" width="100%" height="100%">
+                            <source src="../../assets/video/PARKOUR Santorini.mp4" type="video/mp4">
+                        </video>
+                    </section>
                 </section>
-                <section class="puravita-chat-sidebar /*puravita-chat-sidebar-show">
+                <section id="puravita-sidebar" class="puravita-chat-sidebar /*puravita-chat-sidebar-show">
                     <section class="puravita-chat-sidebar_messages">
                         <section class="puravita-chat-sidebar_messages_item">
                             <div class="puravita-chat-sidebar_messages_item_baloon">
@@ -128,20 +134,20 @@
                     </footer>
                 </section>
                 <footer class="puravita-painel">
-                    <section class="puravita-controller /*puravita-controller-sidebar">
+                    <section id="puravita-controller" class="puravita-controller /*puravita-controller-sidebar">
                         <section class="puravita-controller_subtitle">
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, ipsa cumque? Quia, et placeat recusandae omnis unde cum.
                         </section>
                         <section class="puravita-progressbar">
                             <div class="puravita-progressbar_barbox">
                                 <div class="puravita-progressbar_bar">
-                                    <div class="puravita-progressbar_bar_loadbuffer"></div>
-                                    <div class="puravita-progressbar_bar_progress">
+                                    <div id="puravita-progressbuffer" class="puravita-progressbar_bar_loadbuffer"></div>
+                                    <div id="puravita-progressbar" class="puravita-progressbar_bar_progress">
                                         <div class="puravita-progressbar_bar_progress_dot"></div>
                                     </div>
                                 </div>
-                                <div class="puravita-timetext">
-                                    15:02:00
+                                <div id="puravita-time" class="puravita-timetext">
+                                    00:00:00
                                 </div>
                                 <div class="puravita-progressbar_markup-timeline">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -153,7 +159,7 @@
                         </section>
                         <section class="puravita-buttons">
                             <section class="puravita-buttons_left-side">
-                                <button class="puravita-buttons_btn-play">
+                                <button id="play-puravita" class="puravita-buttons_btn-play">
                                     <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5 1H1V17H5V1Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M13 1H9V17H13V1Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -162,24 +168,24 @@
                                 <div class="puravita-buttons_speed-playbackrate">
                                     <input type="checkbox" class="puravita-buttons_speed-playbackrate_trigger" id="cutesexyrobutts-trigger-1">
                                     <div class="puravita-buttons_speed-playbackrate_options">
-                                        <ul class="puravita-buttons_speed-playbackrate_list">
+                                        <ul id="puravita-rate-list" class="puravita-buttons_speed-playbackrate_list">
                                             <li data-value="0.5" class="puravita-buttons_speed-playbackrate_item">
-                                                <label for="cutesexyrobutts-trigger-1">
+                                                <label data-value="0.5" for="cutesexyrobutts-trigger-1">
                                                     0.5x
                                                 </label>
                                             </li>
                                             <li data-value="1.0" class="puravita-buttons_speed-playbackrate_item">
-                                                <label for="cutesexyrobutts-trigger-1">
+                                                <label data-value="1.0" for="cutesexyrobutts-trigger-1">
                                                     1.0x
                                                 </label>
                                             </li>
                                             <li data-value="1.5" class="puravita-buttons_speed-playbackrate_item">
-                                                <label for="cutesexyrobutts-trigger-1">
+                                                <label data-value="1.5" for="cutesexyrobutts-trigger-1">
                                                     1.5x
                                                 </label>
                                             </li>
                                             <li data-value="0.5" class="puravita-buttons_speed-playbackrate_item">
-                                                <label for="cutesexyrobutts-trigger-1">
+                                                <label data-value="2.0" for="cutesexyrobutts-trigger-1">
                                                     2.0x
                                                 </label>
                                             </li>
@@ -192,8 +198,8 @@
                                                 <path d="M14.0581 8.10938L9.52985 12.0457L10.6447 16.3767" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                             </svg>                                        
                                         </figure>
-                                        <span class="puravita-buttons_speed-playbackrate_label">
-                                            1.5x
+                                        <span id="puravita-rate-label" class="puravita-buttons_speed-playbackrate_label">
+                                            1.0x
                                         </span>
                                     </label>
                                 </div>
@@ -213,7 +219,7 @@
                                             </svg>                                                                                     
                                         </div>
                                         <div class="puravita-buttons_volume_button_input-box">
-                                            <input class="puravita-buttons_volume_button_input" type="range">
+                                            <input id="puravita-volume" value="1" max="1" min="0" step="0.1" class="puravita-buttons_volume_button_input" type="range">
                                         </div>
                                     </label>
                                 </div>
@@ -258,7 +264,7 @@
                                         <path d="M11 13L16 19H6L11 13Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>                                                                                                                                                            
                                 </button>
-                                <button class="puravita-buttons_aside_button">
+                                <button id="puravita-sidebar-button" class="puravita-buttons_aside_button">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M3 1H17C18.1046 1 19 1.89543 19 3V17C19 18.1046 18.1046 19 17 19H3C1.89543 19 1 18.1046 1 17V3C1 1.89543 1.89543 1 3 1Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M19 7H1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -267,7 +273,7 @@
                                 </button>
                                 <div class="puravita-buttons_config">
                                     <div class="puravita-buttons_config_overlay">
-                                        <input type="checkbox" id="cutesexyrobutts-trigger-4-list" class="puravita-buttons_config_trigger">
+                                        <input type="checkbox" id="cutesexyrobutts-trigger-4-list" class="puravita-buttons_config_trigger js-inative">
                                         <div class="puravita-buttons_config_button_input-box_list-box">
                                             <ul class="puravita-buttons_config_button_input-box_options">
                                                 <li class="puravita-buttons_config_button_input-box_item">

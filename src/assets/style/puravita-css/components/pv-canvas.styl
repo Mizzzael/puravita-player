@@ -6,6 +6,22 @@
     overflow hidden
     width 100%
     height 100%
+    &_video, &_glass
+        width 100%
+        height 100%
+        position absolute
+        left 0
+        right 0
+        bottom 0
+        top 0
+        margin auto
+        z-index 1
+        overflow hidden
+        & video
+            width 100%
+            height 100%
+    &_glass
+        z-index 8
     &_animation, &_subtitle_controls
         position absolute
         top 0
@@ -13,6 +29,13 @@
         width 100%
         height 100%
         z-index 1
+        transition opacity 200ms ease
+        transition-delay 200ms
+        visibility hidden
+        &_hide
+            opacity 0
+    &_subtitle_controls_hide
+        pointer-events none
     &_subtitle_controls
         &_panel
             width 520px
@@ -175,3 +198,37 @@
         align-items center
         justify-content center
         flex-wrap wrap
+
+.puravita-player-screen-480p .puravita-canvas
+    &_subtitle_controls
+        &_panel
+            margin-bottom 120px
+
+.puravita-player-screen-360p .puravita-canvas
+    &_subtitle_controls
+        position relative
+        top -60px
+        &_panel
+            &_header
+                padding 0.4rem 0
+             &_item
+                padding 0.45rem 0
+                margin 0.45rem 0
+                &-input 
+                    &::-webkit-slider-thumb
+                        width 12px
+                        height 12px
+                        margin -5px 0 0 0
+                    &::-moz-range-thumb
+                        width 12px
+                        height 12px
+                        margin -5px 0 0 0
+                &-range-box
+                    &_pipe
+                        height 12px
+                        width 1px
+                &-big-letter
+                    font-size 1.1rem
+
+.puravita-player-screen-mobile .puravita-canvas
+    display none

@@ -8,8 +8,15 @@ const inputClose = (input: HTMLInputElement | any, inputs: NodeListOf<Element>) 
 
 const controlInputsToggle = (player: HTMLElement) => {
     const inputs = player.querySelectorAll('input[type="checkbox"]:not(.js-inative)');
+    document.addEventListener('click', () => {
+        inputs.forEach((v) => {
+            (v as any).checked = false;
+        });
+    });
     inputs.forEach((input) => {
-        input.addEventListener('click', () => {
+        input.addEventListener('click', (e) => {
+            e.cancelBubble = true;
+            e.stopPropagation();
             if ((input as any).checked) {
                 inputClose(input, inputs);
             }

@@ -11,18 +11,32 @@
         display flex
         justify-content center
         align-items center
+        &:hover
+            & .puravita-progressbar_bar_loadbuffer, & .puravita-progressbar_bar_progress
+                height 8px
     &_bar
         width calc(100% - 80px)
         background-color rgba(255, 255, 255, 0.5)
         position relative
         border-radius 8px
         cursor pointer
-        margin 11px 0
-        &_loadbuffer, &_progress
+        margin 11px 0        
+        &_loadbuffer, &_progress, &_progress_track
             height 2px
+            border-radius 8px
             transition-duration 20ms
             transition-timing-function linear
             transition-property width
+            transition 220ms height ease
+        &_progress_track
+            position absolute
+            width 100%
+            left 0
+            top 0
+            bottom 0
+            margin auto 0
+            z-index 4
+            height 20px
         &_loadbuffer
             z-index 1
             background-color rgba(255, 255, 255, 0.6)
@@ -43,9 +57,12 @@
                 border-radius 100%
                 background-color rgba(255, 255, 255, 0.5)
                 position absolute
-                top -10px
+                top 0
+                bottom 0
+                margin auto 0
                 right -10px
                 transition 220ms transform ease
+                z-index -1
                 &:hover
                     transform scale(1.12)
                 &:after
@@ -90,8 +107,6 @@
         &_bar_progress_dot
             width 18px
             height 18px
-            top -8px
-            right -8px
             &:after
                 width 14px
                 height 14px
@@ -103,11 +118,11 @@
 
 .puravita-player-screen-360p, .puravita-player-screen-mobile
     & .puravita-progressbar
+        &_progress_track
+            height 16px
         &_bar_progress_dot
             width 14px
             height 14px
-            top -6px
-            right -6px
             &:after
                 width 10px
                 height 10px

@@ -8,12 +8,16 @@ import {
     controlInputsToggle,
     playrate,
     sidebarToggle,
+    progressInteration,
+    blurSvgShow,
+    showSubtitleConfig,
 } from './puravita-utils';
 
 window.addEventListener('load', () => {
     const player: any = document.getElementById('puravita-player');
     const video: any = document.getElementById('video-puravita');
     const buttonPlay = document.getElementById('play-puravita');
+    const progressel = document.getElementById('puravita-progress');
     const progressbar = document.getElementById('puravita-progressbar');
     const progressbuffer = document.getElementById('puravita-progressbuffer');
     const timenumber = document.getElementById('puravita-time');
@@ -23,6 +27,10 @@ window.addEventListener('load', () => {
     const sidebarbutton = document.getElementById('puravita-sidebar-button');
     const sidebar = document.getElementById('puravita-sidebar');
     const controller = document.getElementById('puravita-controller');
+    const svgBlurBox = document.getElementById('puravita-box-blur');
+    const svgBlurBoxSVG = document.getElementById('puravita-box-blur-svg');
+    const subtitleButton = document.getElementById('button-subtitle-trigger');
+    const theCanvas = document.getElementById('the-canvas');
 
     playrate(playratelabel, playratelist, video);
     controlInputsToggle(player);
@@ -32,7 +40,10 @@ window.addEventListener('load', () => {
     countTime(timenumber, 0, video.duration);
     volume(video, volumeinput);
     sidebarToggle(video, sidebarbutton, sidebar, controller);
+    progressInteration(video, progressel, progressbar, timenumber);
+    blurSvgShow(video, svgBlurBoxSVG, theCanvas);
+    showSubtitleConfig(video, subtitleButton, svgBlurBox);
     canPlay(video, () => {
-        countTime(timenumber, 0, video.duration);
+        countTime(timenumber, video.currentTime, video.duration);
     });
 }, false);

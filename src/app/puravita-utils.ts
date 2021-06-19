@@ -1,3 +1,5 @@
+import { gsap } from 'gsap';
+
 const inputClose = (input: HTMLInputElement | any, inputs: NodeListOf<Element>) => {
     inputs.forEach((v) => {
         if (v != input) {
@@ -7,17 +9,24 @@ const inputClose = (input: HTMLInputElement | any, inputs: NodeListOf<Element>) 
 };
 
 const controlInputsToggle = (player: HTMLElement) => {
-    const inputs = player.querySelectorAll('input[type="checkbox"]:not(.js-inative)');
+    const inputs = player.querySelectorAll('input[type="checkbox"]');
+    const labels = player.querySelectorAll('label');
     document.addEventListener('click', () => {
         inputs.forEach((v) => {
             (v as any).checked = false;
+        });
+    });
+    labels.forEach((label) => {
+        label.addEventListener('click', (e) => {
+            e.cancelBubble = true;
+            e.stopPropagation();
         });
     });
     inputs.forEach((input) => {
         input.addEventListener('click', (e) => {
             e.cancelBubble = true;
             e.stopPropagation();
-            if ((input as any).checked) {
+            if ((input as any).checked && !(input as any).classList.contains('js-inative')) {
                 inputClose(input, inputs);
             }
         });
@@ -25,13 +34,22 @@ const controlInputsToggle = (player: HTMLElement) => {
 };
 
 const playPause = (video: any, button: HTMLElement): void => {
+    video.addEventListener('pause', () => {
+        video.classList.remove('puravita-play');
+    });
+
+    video.addEventListener('ended', () => {
+        video.classList.remove('puravita-play');
+    });
+
+    video.addEventListener('play', () => {
+        video.classList.add('puravita-play');
+    });
     button.addEventListener('click', (): void => {
         if (video.classList.contains('puravita-play')) {
             video.pause();
-            video.classList.remove('puravita-play');
         } else {
             video.play();
-            video.classList.add('puravita-play');
         }
     }, false);
 };
@@ -133,6 +151,82 @@ const sidebarToggle = (video: HTMLVideoElement, button: HTMLElement, sidebar: HT
     }, false);
 };
 
+const progressInteration = (video: HTMLVideoElement, progressel: HTMLElement, progressbar: HTMLElement, time: HTMLElement): void => {
+    let mousemove = false;
+    progressel.addEventListener('mouseout', () => {
+        mousemove = false;
+        progressel.style.zIndex = '4';
+    });
+
+    progressel.addEventListener('mousedown', () => {
+        mousemove = true;
+        progressel.style.zIndex = '9';
+    });
+
+    progressel.addEventListener('mouseup', () => {
+        mousemove = false;
+        progressel.style.zIndex = '4';
+    });
+
+    progressel.addEventListener('mousemove', (e: any) => {
+        if (!mousemove) return;
+        video.pause();
+        const { width } = progressel.getClientRects()[0];
+        const { layerX } = e;
+        const percentage = layerX / (width * 0.01);
+        const { duration } = video;
+        const minuteSet = (duration * 0.01) * percentage;
+        setProgressPercentage(progressbar, video, minuteSet);
+        video.currentTime = minuteSet;
+        countTime(time, video.currentTime, duration);
+    });
+
+    progressel.addEventListener('click', (e: any) => {
+        const { width } = progressel.getClientRects()[0];
+        const { layerX } = e;
+        const percentage = layerX / (width * 0.01);
+        const { duration } = video;
+        const minuteSet = (duration * 0.01) * percentage;
+        setProgressPercentage(progressbar, video, minuteSet);
+        video.currentTime = minuteSet;
+        countTime(time, video.currentTime, duration);
+    });
+};
+
+const blurSvgShow = (video: HTMLVideoElement, svg: HTMLElement, theCanvas: any) => {
+    const cropFrame = () => {
+        theCanvas.width = video.getClientRects()[0].width;
+        theCanvas.height = video.getClientRects()[0].height;
+        const ctx = theCanvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, theCanvas.width, theCanvas.height);
+        const image = svg.querySelector('image');
+        image.setAttribute('xlink:href', theCanvas.toDataURL());
+    };
+    video.addEventListener('pause', () => {
+        cropFrame();
+    });
+    video.addEventListener('play', () => {
+        cropFrame();
+    });
+    cropFrame();
+};
+
+const showSubtitleConfig = (video: HTMLVideoElement, buttonToggleShow: HTMLElement, boxTarget: HTMLElement) => {
+    buttonToggleShow.addEventListener('click', () => {
+        video.pause();
+        if (buttonToggleShow.classList.contains('is-active')) {
+            buttonToggleShow.classList.remove('is-active');
+            // boxTarget.style.visibility = 'hidden';
+            boxTarget.style.zIndex = '4';
+            boxTarget.classList.add('puravita-canvas_animation_hide');
+        } else {
+            buttonToggleShow.classList.add('is-active');
+            boxTarget.style.zIndex = '9';
+            boxTarget.classList.remove('puravita-canvas_animation_hide');
+        }
+    });
+};
+
 export {
     playPause,
     progress,
@@ -144,4 +238,7 @@ export {
     controlInputsToggle,
     playrate,
     sidebarToggle,
+    progressInteration,
+    blurSvgShow,
+    showSubtitleConfig,
 };

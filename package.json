@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "animejs": "^3.2.1",
+    "gsap": "^3.7.0",
     "tailwindcss": "^2.1.4"
   }
 }

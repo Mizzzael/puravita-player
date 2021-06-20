@@ -9,8 +9,14 @@ import {
     playrate,
     sidebarToggle,
     progressInteration,
-    blurSvgShow,
     showSubtitleConfig,
+    setInputsColor,
+    setInputSizeSubtitle,
+    addComment,
+    saveComment,
+    iniLoadingAnimation,
+    hideLoading,
+    showLoading,
 } from './puravita-utils';
 
 window.addEventListener('load', () => {
@@ -31,19 +37,63 @@ window.addEventListener('load', () => {
     const svgBlurBoxSVG = document.getElementById('puravita-box-blur-svg');
     const subtitleButton = document.getElementById('button-subtitle-trigger');
     const theCanvas = document.getElementById('the-canvas');
+    const subtitlecontrols = document.getElementById('puravita-control-subtitles');
+    const subtitleColorsInput: Array<HTMLElement> = [document.getElementById('yellow'), document.getElementById('colors')];
+    const subtitle = document.getElementById('puravita-controller-subtitle');
+    const subtitleSize = document.getElementById('subtitle-size');
+    const nameVideo = document.getElementById('puravita-name');
+    const barbox = document.getElementById('puravita-progress_timeline-items');
+    const chatBox = document.getElementById('chat-items');
+    const chatTagTextarea = document.getElementById('form-input-data');
+    const chatInput = document.getElementById('cutesexyrobutts-input-1');
+    const chatTextarea = document.getElementById('cutesexyrobutts-textarea-1');
+    const chatSubmit = document.getElementById('chat-form-submit');
+    const loading = document.getElementById('puravita-loading');
 
+    setInputSizeSubtitle((subtitleSize as HTMLInputElement), subtitle);
+    setInputsColor(subtitleColorsInput, subtitle);
     playrate(playratelabel, playratelist, video);
-    controlInputsToggle(player);
+    controlInputsToggle(player, nameVideo);
     progress(video, progressbar, timenumber);
     setProgressBufferPercentage(video, progressbuffer);
     playPause(video, buttonPlay);
     countTime(timenumber, 0, video.duration);
     volume(video, volumeinput);
-    sidebarToggle(video, sidebarbutton, sidebar, controller);
+    sidebarToggle(video, sidebarbutton, (buttonPlay as HTMLButtonElement), sidebar, controller, (chatTagTextarea as HTMLInputElement), (chatInput as HTMLInputElement));
     progressInteration(video, progressel, progressbar, timenumber);
-    blurSvgShow(video, svgBlurBoxSVG, theCanvas);
-    showSubtitleConfig(video, subtitleButton, svgBlurBox);
+    showSubtitleConfig(video, subtitleButton, svgBlurBox, subtitlecontrols, svgBlurBoxSVG, theCanvas);
+    saveComment(barbox, chatBox, sidebarbutton, (chatInput as HTMLInputElement), (chatTextarea as HTMLTextAreaElement), (chatSubmit as HTMLButtonElement), (video as HTMLVideoElement), {
+        id: '1',
+        avatar: 'assets/images/avatar/1.webp',
+        username: 'cutesexyrobutts',
+    });
+    iniLoadingAnimation(loading);
     canPlay(video, () => {
         countTime(timenumber, video.currentTime, video.duration);
+        addComment(barbox, chatBox, video, sidebarbutton, {
+            id: '1',
+            avatar: 'assets/images/avatar/1.webp',
+            comment: 'Importante: Lorem ipsum dolor sit amet consectetur.',
+            time: 40.32153,
+            username: 'cutesexyrobutts',
+        });
+
+        addComment(barbox, chatBox, video, sidebarbutton, {
+            id: '2',
+            avatar: 'assets/images/avatar/1.webp',
+            comment: 'Importante: Lorem ipsum dolor sit amet consectetur.2',
+            time: 72.32153,
+            username: 'cutesexyrobutts',
+        });
+
+        addComment(barbox, chatBox, video, sidebarbutton, {
+            id: '3',
+            avatar: 'assets/images/avatar/1.webp',
+            comment: 'Importante: Lorem ipsum dolor sit amet consectetur.',
+            time: 160.32153,
+            username: 'cutesexyrobutts',
+        });
+
+        hideLoading(loading);
     });
 }, false);

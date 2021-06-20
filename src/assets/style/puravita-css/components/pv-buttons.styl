@@ -46,6 +46,15 @@
         height 34px
         border-radius 100%
         position relative
+        &_icon-play
+            opacity 0
+        &.is-active 
+            background-color #ffffff
+            & svg:not(.puravita-buttons_btn-play_icon-play)
+                opacity 0
+            & .puravita-buttons_btn-play_icon-play
+                opacity 1
+            
         & svg
             position absolute
             width 40%
@@ -116,7 +125,7 @@
     &_volume_button, &_search_button, &_subtitles_button, &_chomecast_button, &_aside_button, &_config_button
         @extends .pv-glass
     &_volume_button, &_volume_button_active, &_search_button, &_search_button_active, &_subtitles_button, &_chomecast_button, &_aside_button, &_config_button, &_config_button_active
-        border-radius 100%
+        border-radius 100%    
         width 34px
         height 34px
         & svg
@@ -242,10 +251,34 @@
             outline none
     &_chomecast_button, &_aside_button
         margin 0 0.645em 0 0
+        &_aside_button
+            position relative
+            &_active
+                position absolute
+                left 0
+                right 0
+                top 0
+                bottom 0
+                margin 0 auto
+        &.is-active
+            position relative
     &_title
         font-size 0.9rem
         color #ffffff
         overflow hidden
+    &_aside_button
+        &_active
+            position absolute
+            left 0
+            right 0
+            top 0
+            bottom 0
+            opacity 0
+            margin auto !important
+        &.is-active 
+            background-color #ffffff
+            & .puravita-buttons_aside_button_active
+                opacity 1
 
 .puravita-controller-sidebar 
     width 80%

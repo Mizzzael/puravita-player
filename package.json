@@ -39,7 +39,10 @@
   },
   "dependencies": {
     "animejs": "^3.2.1",
-    "gsap": "^3.7.0",
+    "axios": "^0.21.1",
+    "js-sha256": "^0.9.0",
+    "lottie-web": "^5.7.11",
+    "sha256": "^0.2.0",
     "tailwindcss": "^2.1.4"
   }
 }

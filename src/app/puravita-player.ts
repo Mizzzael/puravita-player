@@ -73,7 +73,7 @@ window.addEventListener('load', () => {
     });
     iniLoadingAnimation(loading);
 
-    loadSubtitles(video, 'http://localhost:8080/assets/subtitles/legenda.srt');
+    loadSubtitles(video, 'https://mizzzael.github.io/puravita-player/assets/subtitles/legenda.srt');
     subtitleInit(video, subtitle);
 
     canPlay(video, () => {

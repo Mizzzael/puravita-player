@@ -175,11 +175,7 @@ const subtitleInit = (video: HTMLVideoElement, subtitle: HTMLElement) => {
             }
         };
         video.addEventListener('play', () => {
-            time = setInterval(onPlay, 1200);
-        });
-
-        video.addEventListener('manualTimeUpdate', () => {
-            onPlay();
+            time = setInterval(onPlay, 300);
         });
 
         video.addEventListener('pause', () => {

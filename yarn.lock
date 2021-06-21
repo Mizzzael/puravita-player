@@ -5555,6 +5555,11 @@ stylus@^0.54.8:
     semver "^6.3.0"
     source-map "^0.7.3"
 
+subtitles-parser@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/subtitles-parser/-/subtitles-parser-0.0.2.tgz#cf2fcc3e397b1c7f831e1365f6b3ce37d3155194"
+  integrity sha1-zy/MPjl7HH+DHhNl9rPON9MVUZQ=
+
 supports-color@^5.3.0, supports-color@^5.4.0:
   version "5.5.0"
   resolved "https://registry.npmjs.org/supports-color/-/supports-color-5.5.0.tgz"

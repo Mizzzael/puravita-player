@@ -149,16 +149,20 @@
                 font-size 0.85rem
                 color #FFFFFF
                 cursor pointer
+                width 110px
+                display inline-block
                 i
                     display inline-block
                     vertical-align middle
-                    width 24px
-                    height 24px
+                    width 26px
+                    height 26px
                     margin-right 0.42rem
                     border-radius 100%
                     border-width 2px
                     border-style solid
                     position relative
+                    text-align center
+                    font-size 0
                     &:after
                         content ""
                         position absolute
@@ -167,10 +171,12 @@
                         top 0
                         bottom 0
                         margin auto
-                        width 20px
-                        height 20px
+                        width 22px
+                        height 22px
                         transition transform 220ms ease
                         border-radius 100%
+                        display block
+                        transform-origin center center
             &_white
                 & i
                     border-color #FFFFFF

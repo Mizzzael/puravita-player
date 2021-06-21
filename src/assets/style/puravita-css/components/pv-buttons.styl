@@ -131,6 +131,21 @@
         & svg
             width 16px
             margin 0 auto    
+    &_subtitles_button
+        position relative
+        &.is-active
+            background-color #ffffff
+        &:not(.is-active)
+            & .puravita-buttons_subtitles_button_active
+                opacity 0
+        &_active
+            position absolute
+            left 0
+            right 0
+            top 0
+            bottom 0
+            margin auto !important
+
     &_volume_container, &_search_container, &_config_container
         border-radius 60px
         width 34px

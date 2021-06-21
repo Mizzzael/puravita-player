@@ -1,9 +1,10 @@
 import { sha256 } from 'js-sha256';
 import lottie from 'lottie-web';
-
+import axios from 'axios';
 import { timelineIco, chatSvgArrowIcon } from './els';
 import { renderFunction } from './puravita-render';
 
+const parser = require('subtitles-parser');
 const loadingData = require('./loading.json');
 
 const loadDataUrlSvg: Event = new Event('loadDataUrlSvg');
@@ -140,6 +141,60 @@ const progress = (video: HTMLVideoElement | any, progressbar: HTMLElement, time:
             clearInterval(timeInterval);
             timeInterval = false;
         }
+    });
+};
+
+const subtitleInit = (video: HTMLVideoElement, subtitle: HTMLElement) => {
+    let time: any = false;
+    video.addEventListener('loadsubtitle', ({ detail }: any) => {
+        const filterLegendsByPercentage: any = {};
+        detail.forEach(({ startTime, endTime, text }: any) => {
+            filterLegendsByPercentage[startTime.toString()] = {
+                startTime,
+                endTime,
+                text,
+            };
+        });
+
+        let subtitleOBJ: any = false;
+        const onPlay = () => {
+            const currentTime = (video.currentTime * 1000).toFixed(0);
+            if (!subtitleOBJ) {
+                Object.keys(filterLegendsByPercentage).forEach((key) => {
+                    if (
+                        parseInt(currentTime) >= filterLegendsByPercentage[key].startTime
+                        && parseInt(currentTime) <= filterLegendsByPercentage[key].endTime
+                    ) {
+                        subtitleOBJ = filterLegendsByPercentage[key];
+                        subtitle.innerText = subtitleOBJ.text.toString('utf-8');
+                    }
+                });
+            } else if (subtitleOBJ && subtitleOBJ.endTime <= currentTime) {
+                subtitleOBJ = false;
+                subtitle.innerText = '';
+            }
+        };
+        video.addEventListener('play', () => {
+            time = setInterval(onPlay, 1200);
+        });
+
+        video.addEventListener('manualTimeUpdate', () => {
+            onPlay();
+        });
+
+        video.addEventListener('pause', () => {
+            if (time) {
+                clearInterval(time);
+                time = false;
+            }
+        });
+
+        video.addEventListener('ended', () => {
+            if (time) {
+                clearInterval(time);
+                time = false;
+            }
+        });
     });
 };
 
@@ -292,6 +347,7 @@ const showSubtitleConfig = (
             boxTarget.style.zIndex = '4';
             boxTarget.classList.add('puravita-canvas_animation_hide');
             controlSubtitleBox.classList.add('puravita-canvas_subtitle_controls_hide');
+            buttonToggleShow.classList.remove('is-active');
             video.dispatchEvent(subtitleConfigHide);
         }
     };
@@ -301,6 +357,7 @@ const showSubtitleConfig = (
         buttonToggleShow.classList.add('is-active');
         boxTarget.classList.remove('puravita-canvas_animation_hide');
         controlSubtitleBox.classList.remove('puravita-canvas_subtitle_controls_hide');
+        buttonToggleShow.classList.add('is-active');
         video.dispatchEvent(subtitleConfigShow);
     };
 
@@ -589,6 +646,47 @@ const showLoading = (loading: HTMLElement) => {
     }, 300);
 };
 
+const defineDimension = (target: HTMLElement, player: HTMLElement) => {
+    const { width } = target.getBoundingClientRect();
+    if (width >= 1920) {
+        player.classList.remove('puravita-player-screen-mobile');
+        player.classList.remove('puravita-player-screen-360p');
+        player.classList.remove('puravita-player-screen-480p');
+        player.classList.remove('puravita-player-screen-720p');
+    } else if (width >= 1280) {
+        player.classList.remove('puravita-player-screen-mobile');
+        player.classList.remove('puravita-player-screen-360p');
+        player.classList.remove('puravita-player-screen-480p');
+        player.classList.add('puravita-player-screen-720p');
+    } else if (width >= 1100) {
+        player.classList.remove('puravita-player-screen-mobile');
+        player.classList.remove('puravita-player-screen-360p');
+        player.classList.add('puravita-player-screen-480p');
+        player.classList.remove('puravita-player-screen-720p');
+    } else if (width >= 640) {
+        player.classList.remove('puravita-player-screen-mobile');
+        player.classList.add('puravita-player-screen-360p');
+        player.classList.remove('puravita-player-screen-480p');
+        player.classList.remove('puravita-player-screen-720p');
+    } else {
+        player.classList.add('puravita-player-screen-mobile');
+        player.classList.remove('puravita-player-screen-360p');
+        player.classList.remove('puravita-player-screen-480p');
+        player.classList.remove('puravita-player-screen-720p');
+    }
+
+    window.addEventListener('resize', () => {
+        defineDimension(target, player);
+    });
+};
+
+const loadSubtitles = (video: HTMLVideoElement, legendLink: string) => {
+    axios.get(legendLink).then((e: any) => {
+        const event = new CustomEvent('loadsubtitle', { detail: parser.fromSrt(e.data, true) });
+        video.dispatchEvent(event);
+    });
+};
+
 export interface Comment {
     id: string,
     avatar: string,
@@ -623,4 +721,7 @@ export {
     iniLoadingAnimation,
     hideLoading,
     showLoading,
+    defineDimension,
+    loadSubtitles,
+    subtitleInit,
 };

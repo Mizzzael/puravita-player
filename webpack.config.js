@@ -33,6 +33,10 @@ const config = {
                     from: './src/assets/video/',
                     to: 'assets/video/',
                 },
+                {
+                    from: './src/assets/subtitles/',
+                    to: 'assets/subtitles/',
+                },
             ],
         }),
     ],

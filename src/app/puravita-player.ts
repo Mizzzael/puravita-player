@@ -17,9 +17,13 @@ import {
     iniLoadingAnimation,
     hideLoading,
     showLoading,
+    defineDimension,
+    loadSubtitles,
+    subtitleInit,
 } from './puravita-utils';
 
 window.addEventListener('load', () => {
+    const targetPlayer = document.getElementById('player-target');
     const player: any = document.getElementById('puravita-player');
     const video: any = document.getElementById('video-puravita');
     const buttonPlay = document.getElementById('play-puravita');
@@ -49,7 +53,7 @@ window.addEventListener('load', () => {
     const chatTextarea = document.getElementById('cutesexyrobutts-textarea-1');
     const chatSubmit = document.getElementById('chat-form-submit');
     const loading = document.getElementById('puravita-loading');
-
+    defineDimension(targetPlayer, player);
     setInputSizeSubtitle((subtitleSize as HTMLInputElement), subtitle);
     setInputsColor(subtitleColorsInput, subtitle);
     playrate(playratelabel, playratelist, video);
@@ -68,6 +72,10 @@ window.addEventListener('load', () => {
         username: 'cutesexyrobutts',
     });
     iniLoadingAnimation(loading);
+
+    loadSubtitles(video, 'http://localhost:8080/assets/subtitles/legenda.srt');
+    subtitleInit(video, subtitle);
+
     canPlay(video, () => {
         countTime(timenumber, video.currentTime, video.duration);
         addComment(barbox, chatBox, video, sidebarbutton, {
@@ -93,7 +101,6 @@ window.addEventListener('load', () => {
             time: 160.32153,
             username: 'cutesexyrobutts',
         });
-
         hideLoading(loading);
     });
 }, false);

@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "npx webpack serve",
-    "build": "npx webpack",
+    "build": "npx webpack --config webpack.production.js",
     "css": "npx tailwindcss build ./src/assets/style/css/tailwindcss.css -o ./src/assets/style/tailwind.bundle.css --config=tailwind.config.js"
   },
   "devDependencies": {

@@ -69,7 +69,7 @@ window.addEventListener('load', () => {
     saveComment(barbox, chatBox, sidebarbutton, (chatInput as HTMLInputElement), (chatTextarea as HTMLTextAreaElement), (chatSubmit as HTMLButtonElement), (video as HTMLVideoElement), {
         id: '1',
         avatar: 'assets/images/avatar/1.webp',
-        username: 'cutesexyrobutts',
+        username: 'o inominável',
     });
     iniLoadingAnimation(loading);
 
@@ -83,7 +83,7 @@ window.addEventListener('load', () => {
             avatar: 'assets/images/avatar/1.webp',
             comment: 'Importante: Lorem ipsum dolor sit amet consectetur.',
             time: 40.32153,
-            username: 'cutesexyrobutts',
+            username: 'o inominável',
         });
 
         addComment(barbox, chatBox, video, sidebarbutton, {
@@ -91,7 +91,7 @@ window.addEventListener('load', () => {
             avatar: 'assets/images/avatar/1.webp',
             comment: 'Importante: Lorem ipsum dolor sit amet consectetur.2',
             time: 72.32153,
-            username: 'cutesexyrobutts',
+            username: 'o inominável',
         });
 
         addComment(barbox, chatBox, video, sidebarbutton, {
@@ -99,7 +99,7 @@ window.addEventListener('load', () => {
             avatar: 'assets/images/avatar/1.webp',
             comment: 'Importante: Lorem ipsum dolor sit amet consectetur.',
             time: 160.32153,
-            username: 'cutesexyrobutts',
+            username: 'o inominável',
         });
         hideLoading(loading);
     });

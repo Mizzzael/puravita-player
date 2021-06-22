@@ -315,15 +315,11 @@ const progressInteration = (video: HTMLVideoElement, progressel: HTMLElement, pr
     });
 };
 
-let ctx: any = false;
-let imageGamb: any = false;
 const cropFrame = (video: HTMLVideoElement, svg: HTMLElement, theCanvas: any) => {
-    if (!ctx) {
-        imageGamb = svg.querySelector('image');
-        theCanvas.width = video.getClientRects()[0].width;
-        theCanvas.height = video.getClientRects()[0].height;
-        ctx = theCanvas.getContext('2d');
-    }
+    const imageGamb = svg.querySelector('image');
+    theCanvas.width = video.getClientRects()[0].width;
+    theCanvas.height = video.getClientRects()[0].height;
+    const ctx = theCanvas.getContext('2d');
     ctx.drawImage(video, 0, 0, theCanvas.width, theCanvas.height);
     imageGamb.setAttribute('xlink:href', theCanvas.toDataURL());
     video.dispatchEvent(loadDataUrlSvg);
@@ -476,6 +472,77 @@ const commentBox = (comment: Comment, icon: HTMLElement, video: HTMLVideoElement
         id: sha256(`chat-item-profile-span-${new Date().getTime()}`),
         style: {},
     });
+    // const buttonClose: HTMLElement = renderFunction({
+    //     tag: 'button',
+    //     type: 'html',
+    //     attr: {},
+    //     children: [{
+    //         tag: 'svg',
+    //         type: 'svg',
+    //         attr: {
+    //             width: '27',
+    //             height: '27',
+    //             viewBox: '0 0 27 27',
+    //             fill: 'none',
+    //             xmlns: 'http://www.w3.org/2000/svg',
+    //         },
+    //         children: [{
+    //             tag: 'circle',
+    //             type: 'svg',
+    //             attr: {
+    //                 d: 'M16.9286 10.5L10.5 16.9286',
+    //                 stroke: 'white',
+    //                 'stroke-width': '2',
+    //                 'stroke-linecap': 'round',
+    //                 'stroke-linejoin': 'round',
+    //             },
+    //             children: [],
+    //             classes: [],
+    //             id: '',
+    //             style: {},
+    //         }, {
+    //             tag: 'path',
+    //             type: 'svg',
+    //             attr: {
+    //                 d: 'M16.9286 10.5L10.5 16.9286',
+    //                 stroke: 'white',
+    //                 'stroke-width': '2',
+    //                 'stroke-linecap': 'round',
+    //                 'stroke-linejoin': 'round',
+    //             },
+    //             children: [],
+    //             classes: [],
+    //             id: '',
+    //             style: {},
+    //         }, {
+    //             tag: 'path',
+    //             type: 'svg',
+    //             attr: {
+    //                 d: 'M10.5 10.5L16.9286 16.9286',
+    //                 stroke: 'white',
+    //                 'stroke-width': '2',
+    //                 'stroke-linecap': 'round',
+    //                 'stroke-linejoin': 'round',
+    //             },
+    //             children: [],
+    //             classes: [],
+    //             id: '',
+    //             style: {},
+    //         }],
+    //         classes: ['puravita-chat-sidebar_messages_item_close'],
+    //         id: sha256(`chat-item-profile-close-${new Date().getTime()}`),
+    //         style: {},
+    //     }],
+    //     classes: ['puravita-chat-sidebar_messages_item_button-close'],
+    //     id: sha256(`chat-item-profile-button-close-${new Date().getTime()}`),
+    //     style: {},
+    // });
+
+    // <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+    // <path d="M7.92857 1.5L1.5 7.92857" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    // <path d="M1.5 1.5L7.92857 7.92857" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    // </svg>
+
     const buttonClose: HTMLElement = renderFunction({
         tag: 'button',
         type: 'html',
@@ -484,17 +551,17 @@ const commentBox = (comment: Comment, icon: HTMLElement, video: HTMLVideoElement
             tag: 'svg',
             type: 'svg',
             attr: {
-                width: '27',
-                height: '27',
-                viewBox: '0 0 27 27',
+                width: '9',
+                height: '9',
+                viewBox: '0 0 9 9',
                 fill: 'none',
                 xmlns: 'http://www.w3.org/2000/svg',
             },
             children: [{
-                tag: 'circle',
+                tag: 'path',
                 type: 'svg',
                 attr: {
-                    d: 'M16.9286 10.5L10.5 16.9286',
+                    d: 'M7.92857 1.5L1.5 7.92857',
                     stroke: 'white',
                     'stroke-width': '2',
                     'stroke-linecap': 'round',
@@ -508,21 +575,7 @@ const commentBox = (comment: Comment, icon: HTMLElement, video: HTMLVideoElement
                 tag: 'path',
                 type: 'svg',
                 attr: {
-                    d: 'M16.9286 10.5L10.5 16.9286',
-                    stroke: 'white',
-                    'stroke-width': '2',
-                    'stroke-linecap': 'round',
-                    'stroke-linejoin': 'round',
-                },
-                children: [],
-                classes: [],
-                id: '',
-                style: {},
-            }, {
-                tag: 'path',
-                type: 'svg',
-                attr: {
-                    d: 'M10.5 10.5L16.9286 16.9286',
+                    d: 'M1.5 1.5L7.92857 7.92857',
                     stroke: 'white',
                     'stroke-width': '2',
                     'stroke-linecap': 'round',
@@ -683,6 +736,112 @@ const loadSubtitles = (video: HTMLVideoElement, legendLink: string) => {
     });
 };
 
+const makeSearchResults = ({ startTime }: any) => {
+    // <section class="puravita-canvas_subtitle_controls_panel_item">
+    //     <div class="puravita-canvas_subtitle_controls_panel_item-time">
+    //         00:03:20
+    //     </div>
+    //     <div class="puravita-canvas_subtitle_controls_panel_item-subtitle">
+    //         Lorem ipsum dolor sit.
+    //     </div>
+    // </section>
+    const item = renderFunction({
+        tag: 'section',
+        type: 'html',
+        id: sha256(`puravita-search-item-${new Date().getTime()}`),
+        attr: {},
+        classes: ['puravita-canvas_subtitle_controls_panel_item'],
+        children: [],
+        style: {},
+    });
+    const time = renderFunction({
+        tag: 'div',
+        type: 'html',
+        id: sha256(`puravita-search-item-time-${new Date().getTime()}`),
+        attr: {},
+        classes: ['puravita-canvas_subtitle_controls_panel_item-time'],
+        children: [],
+        style: {},
+    });
+    const text = renderFunction({
+        tag: 'div',
+        type: 'html',
+        id: sha256(`puravita-search-item-subtitle-${new Date().getTime()}`),
+        attr: {},
+        classes: ['puravita-canvas_subtitle_controls_panel_item-subtitle'],
+        children: [],
+        style: {},
+    });
+    time.innerText = formatedTime(startTime / 1000);
+    item.appendChild(time);
+    item.appendChild(text);
+    return item;
+};
+const searchInput = (
+    video: HTMLVideoElement,
+    input: HTMLInputElement,
+    svg: HTMLElement,
+    theCanvas: HTMLElement,
+    svgBox: HTMLElement,
+    controlSearch: HTMLElement,
+) => {
+    video.addEventListener('loadsubtitle', ({ detail }: any) => {
+        let usingInput = false;
+        video.addEventListener('play', () => {
+            if (!usingInput) {
+                input.value = '';
+            }
+        });
+        video.addEventListener('pause', () => {
+            if (!usingInput) {
+                input.value = '';
+            }
+        });
+        video.addEventListener('subtitleConfigShow', () => {
+            input.value = '';
+            showSVGCrop = false;
+            usingInput = false;
+            controlSearch.classList.add('puravita-canvas_subtitle_search_hide');
+        });
+        let showSVGCrop = false;
+        const showCrop = () => {
+            showSVGCrop = true;
+            cropFrame(video, svg, theCanvas);
+            svgBox.style.zIndex = '9';
+            svgBox.classList.remove('puravita-canvas_animation_hide');
+            controlSearch.classList.remove('puravita-canvas_subtitle_search_hide');
+        };
+
+        const hideCrop = () => {
+            showSVGCrop = false;
+            usingInput = false;
+            svgBox.style.zIndex = '4';
+            svgBox.classList.add('puravita-canvas_animation_hide');
+            controlSearch.classList.add('puravita-canvas_subtitle_search_hide');
+        };
+        const header = controlSearch.querySelector('header.puravita-canvas_subtitle_controls_panel_header');
+        const section = controlSearch.querySelector('section.puravita-canvas_subtitle_controls_panel_results');
+        input.addEventListener('keyup', () => {
+            usingInput = true;
+            if (!video.paused) video.pause();
+            if (input.value) {
+                const results = detail.filter(({ text }: any) => (text.indexOf(input.value) >= 0));
+                if (!showSVGCrop) {
+                    showCrop();
+                }
+                // puravita-canvas_subtitle_controls_panel_header
+                (header as HTMLElement).innerText = `${results.length} ${(results.length == 1) ? 'resultado' : 'resultados'} encontrados para "${input.value}"`;
+                section.innerHTML = '';
+                results.forEach((result: any) => {
+                    section.appendChild(makeSearchResults(result));
+                });
+            } else {
+                hideCrop();
+            }
+        });
+    });
+};
+
 export interface Comment {
     id: string,
     avatar: string,
@@ -720,4 +879,5 @@ export {
     defineDimension,
     loadSubtitles,
     subtitleInit,
+    searchInput,
 };

@@ -6,6 +6,8 @@
     overflow hidden
     width 100%
     height 100%
+    &_animation_distort image
+        max-height 1080px
     &_video, &_glass
         width 100%
         height 100%
@@ -26,7 +28,7 @@
         left -100%
     &_glass
         z-index 8
-    &_animation, &_subtitle_controls
+    &_animation, &_subtitle_controls, &_subtitle_search
         position absolute
         top 0
         right 0
@@ -37,11 +39,13 @@
         transition-delay 200ms
         &_hide
             opacity 0
-    &_subtitle_controls_hide
+    &_subtitle_controls_hide, &_subtitle_search_hide
         pointer-events none
-    &_subtitle_controls
+    &_subtitle_controls, &_subtitle_search
         &_panel
             width 520px
+            max-height 320px
+            overflow auto
             margin-bottom 40px
             &_header
                 padding 0.95rem 0
@@ -57,6 +61,15 @@
                 align-items center
                 justify-content center
                 flex-wrap wrap
+                &-time
+                    font-size 0.95rem
+                    padding 0 5px
+                    width 20%
+                    color #FFFFFF
+                &-subtitle
+                    font-size 0.95rem
+                    width 70%
+                    color #FFFFFF
                 &-label
                     font-size 0.95rem
                     color #FFFFFF
@@ -202,19 +215,27 @@
         transition opacity 220ms ease
         width 100%
         height 100%
-    &_subtitle_controls
+    &_subtitle_controls, &_subtitle_search
         z-index 9
         display flex
         align-items center
         justify-content center
         flex-wrap wrap
 
+.puravita-player-screen-720p .puravita-canvas
+    &_animation_distort image
+        max-height 720px
+
 .puravita-player-screen-480p .puravita-canvas
     &_subtitle_controls
         &_panel
             margin-bottom 120px
+    &_animation_distort image
+        max-height 480px
 
 .puravita-player-screen-360p .puravita-canvas
+    &_animation_distort image
+        max-height 360px
     &_subtitle_controls
         position relative
         top -60px
@@ -240,5 +261,5 @@
                 &-big-letter
                     font-size 1.1rem
 
-.puravita-player-screen-mobile .puravita-canvas
+.puravita-player-screen-mobile .puravita-canvas_animation
     display none

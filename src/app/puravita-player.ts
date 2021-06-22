@@ -20,6 +20,7 @@ import {
     defineDimension,
     loadSubtitles,
     subtitleInit,
+    searchInput,
 } from './puravita-utils';
 
 window.addEventListener('load', () => {
@@ -53,6 +54,9 @@ window.addEventListener('load', () => {
     const chatTextarea = document.getElementById('cutesexyrobutts-textarea-1');
     const chatSubmit = document.getElementById('chat-form-submit');
     const loading = document.getElementById('puravita-loading');
+    const inputSearch = document.getElementById('puravita-search-input');
+    const controlSearch = document.getElementById('puravita-control-search');
+
     defineDimension(targetPlayer, player);
     setInputSizeSubtitle((subtitleSize as HTMLInputElement), subtitle);
     setInputsColor(subtitleColorsInput, subtitle);
@@ -75,7 +79,7 @@ window.addEventListener('load', () => {
 
     loadSubtitles(video, 'https://mizzzael.github.io/puravita-player/assets/subtitles/legenda.srt');
     subtitleInit(video, subtitle);
-
+    searchInput((video as HTMLVideoElement), (inputSearch as HTMLInputElement), svgBlurBoxSVG, theCanvas, svgBlurBox, controlSearch);
     canPlay(video, () => {
         countTime(timenumber, video.currentTime, video.duration);
         addComment(barbox, chatBox, video, sidebarbutton, {

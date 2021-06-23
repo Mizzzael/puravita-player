@@ -129,6 +129,11 @@ const progress = (video: HTMLVideoElement | any, progressbar: HTMLElement, time:
         });
     });
 
+    video.addEventListener('goToResultOfSearch', ({ detail }: any) => {
+        setProgressPercentage(progressbar, video, detail.startTime / 1000);
+        countTime(time, detail.startTime / 1000, video.duration);
+    });
+
     video.addEventListener('pause', (): void => {
         if (timeInterval) {
             clearInterval(timeInterval);
@@ -157,8 +162,13 @@ const subtitleInit = (video: HTMLVideoElement, subtitle: HTMLElement) => {
         });
 
         let subtitleOBJ: any = false;
-        const onPlay = () => {
-            const currentTime = (video.currentTime * 1000).toFixed(0);
+        const onPlay = (customTime: any = false) => {
+            let currentTime = '0';
+            if (customTime) {
+                currentTime = customTime;
+            } else {
+                currentTime = (video.currentTime * 1000).toFixed(0);
+            }
             if (!subtitleOBJ) {
                 Object.keys(filterLegendsByPercentage).forEach((key) => {
                     if (
@@ -169,7 +179,7 @@ const subtitleInit = (video: HTMLVideoElement, subtitle: HTMLElement) => {
                         subtitle.innerText = subtitleOBJ.text.toString('utf-8');
                     }
                 });
-            } else if (subtitleOBJ && subtitleOBJ.endTime <= currentTime) {
+            } else if (subtitleOBJ && subtitleOBJ.endTime <= currentTime && subtitleOBJ.startTime <= currentTime) {
                 subtitleOBJ = false;
                 subtitle.innerText = '';
             }
@@ -178,10 +188,23 @@ const subtitleInit = (video: HTMLVideoElement, subtitle: HTMLElement) => {
             time = setInterval(onPlay, 300);
         });
 
-        video.addEventListener('pause', () => {
+        video.addEventListener('goToResultOfSearch', ({ detail }: any) => {
             if (time) {
                 clearInterval(time);
                 time = false;
+                subtitleOBJ = false;
+                subtitle.innerText = '';
+            }
+            onPlay(detail.startTime);
+        });
+
+        video.addEventListener('pause', () => {
+            console.log('%cPaused', 'font-size: 12px; padding: 10px 20px; color: #FFFFFF;background-color: red;');
+            if (time) {
+                clearInterval(time);
+                time = false;
+                subtitleOBJ = false;
+                subtitle.innerText = '';
             }
         });
 
@@ -189,6 +212,8 @@ const subtitleInit = (video: HTMLVideoElement, subtitle: HTMLElement) => {
             if (time) {
                 clearInterval(time);
                 time = false;
+                subtitleOBJ = false;
+                subtitle.innerText = '';
             }
         });
     });
@@ -736,15 +761,17 @@ const loadSubtitles = (video: HTMLVideoElement, legendLink: string) => {
     });
 };
 
-const makeSearchResults = ({ startTime }: any) => {
-    // <section class="puravita-canvas_subtitle_controls_panel_item">
-    //     <div class="puravita-canvas_subtitle_controls_panel_item-time">
-    //         00:03:20
-    //     </div>
-    //     <div class="puravita-canvas_subtitle_controls_panel_item-subtitle">
-    //         Lorem ipsum dolor sit.
-    //     </div>
-    // </section>
+const formatTextLegendToSearch = (text: string, search: string) => {
+    const regExp = new RegExp(`([\\ \\w\\ \\,\\'"]){0,24}(${search})+([\\ \\w\\ \\,\\'"]){0,24}`, 'g');
+    return regExp.exec(text)[0].replace(search, `<b>${search}</b>`);
+};
+
+const makeSearchResults = (video: HTMLVideoElement, { startTime, text }: any, search: string) => {
+    const eventCustom = new CustomEvent('goToResultOfSearch', {
+        detail: {
+            startTime,
+        },
+    });
     const item = renderFunction({
         tag: 'section',
         type: 'html',
@@ -763,7 +790,7 @@ const makeSearchResults = ({ startTime }: any) => {
         children: [],
         style: {},
     });
-    const text = renderFunction({
+    const textDiv = renderFunction({
         tag: 'div',
         type: 'html',
         id: sha256(`puravita-search-item-subtitle-${new Date().getTime()}`),
@@ -773,8 +800,27 @@ const makeSearchResults = ({ startTime }: any) => {
         style: {},
     });
     time.innerText = formatedTime(startTime / 1000);
+    textDiv.innerHTML = `...${formatTextLegendToSearch(text.replace('\n', ' '), search).trim()}...`;
+    item.addEventListener('click', () => {
+        video.currentTime = startTime / 1000;
+        setTimeout(() => {
+            video.dispatchEvent(eventCustom);
+        }, 300);
+    });
+    time.addEventListener('click', () => {
+        video.currentTime = startTime / 1000;
+        setTimeout(() => {
+            video.dispatchEvent(eventCustom);
+        }, 300);
+    });
+    textDiv.addEventListener('click', () => {
+        video.currentTime = startTime / 1000;
+        setTimeout(() => {
+            video.dispatchEvent(eventCustom);
+        }, 300);
+    });
     item.appendChild(time);
-    item.appendChild(text);
+    item.appendChild(textDiv);
     return item;
 };
 const searchInput = (
@@ -786,21 +832,9 @@ const searchInput = (
     controlSearch: HTMLElement,
 ) => {
     video.addEventListener('loadsubtitle', ({ detail }: any) => {
-        let usingInput = false;
-        video.addEventListener('play', () => {
-            if (!usingInput) {
-                input.value = '';
-            }
-        });
-        video.addEventListener('pause', () => {
-            if (!usingInput) {
-                input.value = '';
-            }
-        });
         video.addEventListener('subtitleConfigShow', () => {
             input.value = '';
             showSVGCrop = false;
-            usingInput = false;
             controlSearch.classList.add('puravita-canvas_subtitle_search_hide');
         });
         let showSVGCrop = false;
@@ -814,30 +848,48 @@ const searchInput = (
 
         const hideCrop = () => {
             showSVGCrop = false;
-            usingInput = false;
             svgBox.style.zIndex = '4';
             svgBox.classList.add('puravita-canvas_animation_hide');
             controlSearch.classList.add('puravita-canvas_subtitle_search_hide');
         };
+
+        video.addEventListener('play', () => {
+            input.value = '';
+            hideCrop();
+        });
+
+        video.addEventListener('manualTimeUpdate', () => {
+            input.value = '';
+            hideCrop();
+        });
+
+        video.addEventListener('goToResultOfSearch', () => {
+            input.value = '';
+            hideCrop();
+        });
         const header = controlSearch.querySelector('header.puravita-canvas_subtitle_controls_panel_header');
         const section = controlSearch.querySelector('section.puravita-canvas_subtitle_controls_panel_results');
-        input.addEventListener('keyup', () => {
-            usingInput = true;
+        const action = () => {
             if (!video.paused) video.pause();
             if (input.value) {
                 const results = detail.filter(({ text }: any) => (text.indexOf(input.value) >= 0));
                 if (!showSVGCrop) {
                     showCrop();
                 }
-                // puravita-canvas_subtitle_controls_panel_header
                 (header as HTMLElement).innerText = `${results.length} ${(results.length == 1) ? 'resultado' : 'resultados'} encontrados para "${input.value}"`;
                 section.innerHTML = '';
                 results.forEach((result: any) => {
-                    section.appendChild(makeSearchResults(result));
+                    section.appendChild(makeSearchResults(video, result, input.value));
                 });
             } else {
                 hideCrop();
             }
+        };
+        input.addEventListener('keyup', () => {
+            action();
+        });
+        input.addEventListener('change', () => {
+            action();
         });
     });
 };

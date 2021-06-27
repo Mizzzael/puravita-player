@@ -5,6 +5,7 @@ import { timelineIco, chatSvgArrowIcon } from './els';
 import { renderFunction } from './puravita-render';
 
 const parser = require('subtitles-parser');
+const CastJS = require('./cast');
 const loadingData = require('./loading.json');
 
 const loadDataUrlSvg: Event = new Event('loadDataUrlSvg');
@@ -14,6 +15,22 @@ const buttonPressPlay: Event = new Event('buttonPressPlay');
 const manualTimeUpdate: Event = new Event('manualTimeUpdate');
 const showSidebar: Event = new Event('showSidebar');
 const hideSidebar: Event = new Event('hideSidebar');
+const showSearchSubtitle: Event = new Event('showSearchSubtitle');
+const hideSearchSubtitle: Event = new Event('hideSearchSubtitle');
+
+export interface Comment {
+    id: string,
+    avatar: string,
+    comment: string,
+    time: number,
+    username: string
+}
+
+export interface Profile {
+    id: string,
+    avatar: string,
+    username: string
+}
 
 const inputClose = (input: HTMLInputElement | any, inputs: NodeListOf<Element>) => {
     inputs.forEach((v) => {
@@ -179,7 +196,11 @@ const subtitleInit = (video: HTMLVideoElement, subtitle: HTMLElement) => {
                         subtitle.innerText = subtitleOBJ.text.toString('utf-8');
                     }
                 });
-            } else if (subtitleOBJ && subtitleOBJ.endTime <= currentTime && subtitleOBJ.startTime <= currentTime) {
+            } else if (
+                subtitleOBJ
+                && subtitleOBJ.endTime <= currentTime
+                && subtitleOBJ.startTime <= currentTime
+            ) {
                 subtitleOBJ = false;
                 subtitle.innerText = '';
             }
@@ -267,7 +288,15 @@ const playrate = (label: HTMLElement, list: HTMLElement, video: HTMLVideoElement
     });
 };
 
-const sidebarToggle = (video: HTMLVideoElement, button: HTMLElement, playButton: HTMLButtonElement, sidebar: HTMLElement, controller: HTMLElement, chatTagTextarea: HTMLInputElement, chatInput: HTMLInputElement): void => {
+const sidebarToggle = (
+    video: HTMLVideoElement,
+    button: HTMLElement,
+    playButton: HTMLButtonElement,
+    sidebar: HTMLElement,
+    controller: HTMLElement,
+    chatTagTextarea: HTMLInputElement,
+    chatInput: HTMLInputElement,
+): void => {
     let isShow: boolean = false;
     button.addEventListener('click', () => {
         if (isShow) {
@@ -398,6 +427,10 @@ const showSubtitleConfig = (
         cropFrame(video, svgBlurBoxSVG, theCanvas);
     });
 
+    video.addEventListener('showSearchSubtitle', () => {
+        closeSubtitle();
+    });
+
     buttonToggleShow.addEventListener('click', async () => {
         if (!video.paused) { video.pause(); }
         if (!buttonToggleShow.classList.contains('is-active')) {
@@ -408,17 +441,35 @@ const showSubtitleConfig = (
     });
 };
 
-const setInputsColor = (inputs: Array<HTMLElement>, subtitle: HTMLElement): void => {
+const setInputsColor = (
+    video: HTMLVideoElement,
+    inputs: Array<HTMLElement>,
+    subtitle: HTMLElement,
+): void => {
     inputs.forEach((input) => {
         input.addEventListener('change', () => {
             subtitle.style.color = (input as HTMLInputElement).value;
+            subtitle.innerText = 'Editando cores.';
         });
+    });
+
+    video.addEventListener('subtitleConfigHide', () => {
+        subtitle.innerText = '';
     });
 };
 
-const setInputSizeSubtitle = (input: HTMLInputElement, subtitle: HTMLElement): void => {
+const setInputSizeSubtitle = (
+    video: HTMLVideoElement,
+    input: HTMLInputElement,
+    subtitle: HTMLElement,
+): void => {
     input.addEventListener('change', () => {
         subtitle.style.fontSize = `${input.value}px`;
+        subtitle.innerText = 'Editando tamanho do texto.';
+    });
+
+    video.addEventListener('subtitleConfigHide', () => {
+        subtitle.innerText = '';
     });
 };
 
@@ -646,7 +697,14 @@ const commentBox = (comment: Comment, icon: HTMLElement, video: HTMLVideoElement
     return item;
 };
 
-const addComment = (barbox: HTMLElement, chatBox: HTMLElement, video: HTMLElement, sidebarbutton: HTMLElement, comment: Comment, initialIconOpenSidebarBlock: boolean = false) => {
+const addComment = (
+    barbox: HTMLElement,
+    chatBox: HTMLElement,
+    video: HTMLElement,
+    sidebarbutton: HTMLElement,
+    comment: Comment,
+    initialIconOpenSidebarBlock: boolean = false,
+) => {
     let iconOpenSidebarBlock = initialIconOpenSidebarBlock;
     timelineIco.id = sha256(`timeline-icon-${new Date().getTime()}`);
     const percentage = (video as HTMLVideoElement).duration * 0.01;
@@ -677,7 +735,16 @@ const addComment = (barbox: HTMLElement, chatBox: HTMLElement, video: HTMLElemen
     });
 };
 
-const saveComment = (barBox: HTMLElement, chatBox: HTMLElement, sidebarbutton: HTMLElement, chatInput: HTMLInputElement, chatTextarea: HTMLTextAreaElement, chatSubmit: HTMLButtonElement, video: HTMLVideoElement, user: Profile) => {
+const saveComment = (
+    barBox: HTMLElement,
+    chatBox: HTMLElement,
+    sidebarbutton: HTMLElement,
+    chatInput: HTMLInputElement,
+    chatTextarea: HTMLTextAreaElement,
+    chatSubmit: HTMLButtonElement,
+    video: HTMLVideoElement,
+    user: Profile,
+) => {
     chatSubmit.addEventListener('click', () => {
         if (!chatTextarea.value) {
             chatTextarea.classList.add('is-blocked');
@@ -775,7 +842,7 @@ const makeSearchResults = (video: HTMLVideoElement, { startTime, text }: any, se
     const item = renderFunction({
         tag: 'section',
         type: 'html',
-        id: sha256(`puravita-search-item-${new Date().getTime()}`),
+        id: sha256(`puravita-search-item-${new Date().getTime() * Math.random()}`),
         attr: {},
         classes: ['puravita-canvas_subtitle_controls_panel_item'],
         children: [],
@@ -784,7 +851,7 @@ const makeSearchResults = (video: HTMLVideoElement, { startTime, text }: any, se
     const time = renderFunction({
         tag: 'div',
         type: 'html',
-        id: sha256(`puravita-search-item-time-${new Date().getTime()}`),
+        id: sha256(`puravita-search-item-time-${new Date().getTime() * Math.random()}`),
         attr: {},
         classes: ['puravita-canvas_subtitle_controls_panel_item-time'],
         children: [],
@@ -793,7 +860,7 @@ const makeSearchResults = (video: HTMLVideoElement, { startTime, text }: any, se
     const textDiv = renderFunction({
         tag: 'div',
         type: 'html',
-        id: sha256(`puravita-search-item-subtitle-${new Date().getTime()}`),
+        id: sha256(`puravita-search-item-subtitle-${new Date().getTime() * Math.random()}`),
         attr: {},
         classes: ['puravita-canvas_subtitle_controls_panel_item-subtitle'],
         children: [],
@@ -807,22 +874,11 @@ const makeSearchResults = (video: HTMLVideoElement, { startTime, text }: any, se
             video.dispatchEvent(eventCustom);
         }, 300);
     });
-    time.addEventListener('click', () => {
-        video.currentTime = startTime / 1000;
-        setTimeout(() => {
-            video.dispatchEvent(eventCustom);
-        }, 300);
-    });
-    textDiv.addEventListener('click', () => {
-        video.currentTime = startTime / 1000;
-        setTimeout(() => {
-            video.dispatchEvent(eventCustom);
-        }, 300);
-    });
     item.appendChild(time);
     item.appendChild(textDiv);
     return item;
 };
+
 const searchInput = (
     video: HTMLVideoElement,
     input: HTMLInputElement,
@@ -836,6 +892,7 @@ const searchInput = (
             input.value = '';
             showSVGCrop = false;
             controlSearch.classList.add('puravita-canvas_subtitle_search_hide');
+            video.dispatchEvent(hideSearchSubtitle);
         });
         let showSVGCrop = false;
         const showCrop = () => {
@@ -844,6 +901,7 @@ const searchInput = (
             svgBox.style.zIndex = '9';
             svgBox.classList.remove('puravita-canvas_animation_hide');
             controlSearch.classList.remove('puravita-canvas_subtitle_search_hide');
+            video.dispatchEvent(showSearchSubtitle);
         };
 
         const hideCrop = () => {
@@ -851,6 +909,7 @@ const searchInput = (
             svgBox.style.zIndex = '4';
             svgBox.classList.add('puravita-canvas_animation_hide');
             controlSearch.classList.add('puravita-canvas_subtitle_search_hide');
+            video.dispatchEvent(hideSearchSubtitle);
         };
 
         video.addEventListener('play', () => {
@@ -894,19 +953,35 @@ const searchInput = (
     });
 };
 
-export interface Comment {
-    id: string,
-    avatar: string,
-    comment: string,
-    time: number,
-    username: string
-}
+const chromecast = (buttonChromecast: HTMLElement) => {
+    const cjs: any = new CastJS();
+    buttonChromecast.addEventListener('click', () => {
+        if (cjs.available) {
+            const videoLink = 'https://mizzzael.github.io/puravita-player/7132e1cee7844070f48b.mp4';
+            cjs.cast(videoLink);
+            cjs.on('play', () => {
+                console.log('Chromecast Play');
+            });
 
-export interface Profile {
-    id: string,
-    avatar: string,
-    username: string
-}
+            cjs.on('pause', () => {
+                console.log('Chromecast Pause');
+            });
+
+            cjs.on('end', () => {
+                console.log('Chromecast End');
+            });
+
+            cjs.on('disconnect', () => {
+                console.log('Chromecast Disconnect');
+            });
+
+            cjs.on('timeupdate', (e: any) => {
+                console.log(e);
+                console.log('Chromecast Timeupdate');
+            });
+        }
+    });
+};
 
 export {
     playPause,
@@ -932,4 +1007,5 @@ export {
     loadSubtitles,
     subtitleInit,
     searchInput,
+    chromecast,
 };

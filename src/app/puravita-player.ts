@@ -21,6 +21,7 @@ import {
     loadSubtitles,
     subtitleInit,
     searchInput,
+    chromecast,
 } from './puravita-utils';
 
 window.addEventListener('load', () => {
@@ -56,10 +57,11 @@ window.addEventListener('load', () => {
     const loading = document.getElementById('puravita-loading');
     const inputSearch = document.getElementById('puravita-search-input');
     const controlSearch = document.getElementById('puravita-control-search');
+    const buttonChromecast = document.getElementById('puravita-chromecast');
 
     defineDimension(targetPlayer, player);
-    setInputSizeSubtitle((subtitleSize as HTMLInputElement), subtitle);
-    setInputsColor(subtitleColorsInput, subtitle);
+    setInputSizeSubtitle((video as HTMLVideoElement), (subtitleSize as HTMLInputElement), subtitle);
+    setInputsColor((video as HTMLVideoElement), subtitleColorsInput, subtitle);
     playrate(playratelabel, playratelist, video);
     controlInputsToggle(player, nameVideo);
     progress(video, progressbar, timenumber);
@@ -67,19 +69,53 @@ window.addEventListener('load', () => {
     playPause(video, buttonPlay);
     countTime(timenumber, 0, video.duration);
     volume(video, volumeinput);
-    sidebarToggle(video, sidebarbutton, (buttonPlay as HTMLButtonElement), sidebar, controller, (chatTagTextarea as HTMLInputElement), (chatInput as HTMLInputElement));
-    progressInteration(video, progressel, progressbar, timenumber);
-    showSubtitleConfig(video, subtitleButton, svgBlurBox, subtitlecontrols, svgBlurBoxSVG, theCanvas);
-    saveComment(barbox, chatBox, sidebarbutton, (chatInput as HTMLInputElement), (chatTextarea as HTMLTextAreaElement), (chatSubmit as HTMLButtonElement), (video as HTMLVideoElement), {
-        id: '1',
-        avatar: 'assets/images/avatar/1.webp',
-        username: 'o inominável',
-    });
+    sidebarToggle(
+        video,
+        sidebarbutton,
+        (buttonPlay as HTMLButtonElement),
+        sidebar,
+        controller,
+        (chatTagTextarea as HTMLInputElement),
+        (chatInput as HTMLInputElement),
+    );
+    progressInteration(
+        video,
+        progressel,
+        progressbar,
+        timenumber,
+    );
+    showSubtitleConfig(
+        video,
+        subtitleButton,
+        svgBlurBox,
+        subtitlecontrols,
+        svgBlurBoxSVG,
+        theCanvas,
+    );
+    saveComment(barbox,
+        chatBox,
+        sidebarbutton,
+        (chatInput as HTMLInputElement),
+        (chatTextarea as HTMLTextAreaElement),
+        (chatSubmit as HTMLButtonElement),
+        (video as HTMLVideoElement),
+        {
+            id: '1',
+            avatar: 'assets/images/avatar/1.webp',
+            username: 'o inominável',
+        });
     iniLoadingAnimation(loading);
 
     loadSubtitles(video, 'https://mizzzael.github.io/puravita-player/assets/subtitles/legenda.srt');
     subtitleInit(video, subtitle);
-    searchInput((video as HTMLVideoElement), (inputSearch as HTMLInputElement), svgBlurBoxSVG, theCanvas, svgBlurBox, controlSearch);
+    searchInput(
+        (video as HTMLVideoElement),
+        (inputSearch as HTMLInputElement),
+        svgBlurBoxSVG,
+        theCanvas,
+        svgBlurBox,
+        controlSearch,
+    );
     canPlay(video, () => {
         countTime(timenumber, video.currentTime, video.duration);
         addComment(barbox, chatBox, video, sidebarbutton, {
@@ -107,4 +143,5 @@ window.addEventListener('load', () => {
         });
         hideLoading(loading);
     });
+    chromecast(buttonChromecast);
 }, false);

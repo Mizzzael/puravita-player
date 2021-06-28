@@ -12,7 +12,9 @@
             <section id="player-target" class="md:w-10/12 w-full mx-auto">
                 <section id="puravita-player" class="puravita-player">
                     <section class="puravita-canvas">
-                        <section class="puravita-canvas_glass"></section>                    
+                        <section class="puravita-canvas_glass">
+                            <section id="puravita-chromecast" class="puravita-chromecast-animation"></section>
+                        </section>                    
                         <section id="puravita-box-blur" class="puravita-canvas_animation puravita-canvas_animation_hide">
                             <svg id="puravita-box-blur-svg" class="puravita-canvas_animation_distort" width="350" height="450" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <filter id="c" data-type="displacementMap">
@@ -72,16 +74,14 @@
                         </section>
                         <section id="puravita-control-search" class="puravita-canvas_subtitle_search puravita-canvas_subtitle_search_hide">
                             <div class="puravita-canvas_subtitle_controls_panel">
-                                <header id="puravita-control-search-header" class="puravita-canvas_subtitle_controls_panel_header">
-                                    3 resultados encontrados para "células beta"
-                                </header>
+                                <header id="puravita-control-search-header" class="puravita-canvas_subtitle_controls_panel_header"></header>
                                 <section id="puravita-control-search-items" class="puravita-canvas_subtitle_controls_panel_results"></section>
                             </div>
                         </section>
                         <section class="puravita-canvas_video">
                             <canvas id="the-canvas" class="puravita-canvas_video_canvas"></canvas>
                             <video id="video-puravita" width="100%" height="100%">
-                                <source src="../../assets/video/teste.mp4" type="video/mp4">
+                                <source src="../../assets/video/The%20Largest%20Star%20in%20the%20Universe%20–%20Size%20Comparison%20720p.mp4" type="video/mp4">
                             </video>
                         </section>
                     </section>
@@ -245,15 +245,19 @@
                                         </button>
                                     </div>
                                     <div id="puravita-name" class="puravita-buttons_title">
-                                        Episódio 2 - Macronutrientes: o que são?
+                                        A Maior Estrela do Universo
                                     </div>
                                 </section>
                                 <section class="puravita-buttons_right-side">
-                                    <button id="puravita-chromecast" class="puravita-buttons_chomecast_button">
+                                    <button id="puravita-chromecast-button" class="puravita-buttons_chomecast_button">
                                         <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M4 15H3C2.46957 15 1.96086 14.7893 1.58579 14.4142C1.21071 14.0391 1 13.5304 1 13V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H19C19.5304 1 20.0391 1.21071 20.4142 1.58579C20.7893 1.96086 21 2.46957 21 3V13C21 13.5304 20.7893 14.0391 20.4142 14.4142C20.0391 14.7893 19.5304 15 19 15H18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                             <path d="M11 13L16 19H6L11 13Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>                                                                                                                                                            
+                                        </svg> 
+                                        <svg class="puravita-buttons_chomecast_button_active" width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4 15H3C2.46957 15 1.96086 14.7893 1.58579 14.4142C1.21071 14.0391 1 13.5304 1 13V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H19C19.5304 1 20.0391 1.21071 20.4142 1.58579C20.7893 1.96086 21 2.46957 21 3V13C21 13.5304 20.7893 14.0391 20.4142 14.4142C20.0391 14.7893 19.5304 15 19 15H18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M11 13L16 19H6L11 13Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>                                                                                                                                                                                                       
                                     </button>
                                     <button id="puravita-sidebar-button" class="puravita-buttons_aside_button">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -271,19 +275,14 @@
                                         <div class="puravita-buttons_config_overlay">
                                             <input type="checkbox" id="cutesexyrobutts-trigger-4-list" class="puravita-buttons_config_trigger js-inative">
                                             <div class="puravita-buttons_config_button_input-box_list-box">
-                                                <ul class="puravita-buttons_config_button_input-box_options">
+                                                <ul id="resolution-list" class="puravita-buttons_config_button_input-box_options">
                                                     <li class="puravita-buttons_config_button_input-box_item">
-                                                        <label for="cutesexyrobutts-trigger-4-list">
-                                                            1080p
-                                                        </label>
-                                                    </li>
-                                                    <li class="puravita-buttons_config_button_input-box_item">
-                                                        <label for="cutesexyrobutts-trigger-4-list">
+                                                        <label data-value="cutesexyrobutts-resolution-720p" for="cutesexyrobutts-trigger-4-list">
                                                             720p
                                                         </label>
                                                     </li>
                                                     <li class="puravita-buttons_config_button_input-box_item">
-                                                        <label for="cutesexyrobutts-trigger-4-list">
+                                                        <label data-value="cutesexyrobutts-resolution-480p" for="cutesexyrobutts-trigger-4-list">
                                                             480p
                                                         </label>
                                                     </li>
@@ -293,8 +292,8 @@
                                         <input type="checkbox" id="cutesexyrobutts-trigger-4" class="puravita-buttons_config_trigger">
                                         <label for="cutesexyrobutts-trigger-4" class="puravita-buttons_config_container">
                                             <div class="puravita-buttons_config_button_input-box">                                            
-                                                <label for="cutesexyrobutts-trigger-4-list" class="puravita-buttons_config_button_input-box_text">
-                                                    Qualidade 1080p 
+                                                <label id="resolution-label" for="cutesexyrobutts-trigger-4-list" class="puravita-buttons_config_button_input-box_text">
+                                                    Qualidade 720p 
                                                 </label>
                                                 <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M8 1L4.5 5L1 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

@@ -1,0 +1,846 @@
+﻿1
+00:00:01,240 --> 00:00:03,599
+Qual é a maior estrela do Universo?
+
+2
+00:00:03,880 --> 00:00:05,220
+E por que que é tão grande?
+
+3
+00:00:05,540 --> 00:00:07,660
+E afinal, o que são estrelas?
+
+4
+00:00:08,940 --> 00:00:11,020
+COISAS QUE GOSTARIAM DE SER ESTRELAS
+
+5
+00:00:11,840 --> 00:00:13,379
+Nós começamos nossa jornada com a Terra.
+
+6
+00:00:13,620 --> 00:00:15,000
+Não para aprender algo,
+
+7
+00:00:15,180 --> 00:00:17,360
+somente para ter uma breve noção de escala.
+
+8
+00:00:17,780 --> 00:00:20,760
+As coisas mais pequenas que possuem algumas propriedades estelares
+
+9
+00:00:20,760 --> 00:00:24,080
+são gigantes gasosos ou subanãs marrons,
+
+10
+00:00:24,080 --> 00:00:25,159
+como Júpiter:
+
+11
+00:00:25,160 --> 00:00:28,060
+O planeta mais massivo do sistema solar.
+
+12
+00:00:28,180 --> 00:00:32,159
+11 vezes mais largo e 317 vezes mais massivo do que a Terra;
+
+13
+00:00:32,180 --> 00:00:35,400
+e mais ou menos feito
+das mesmas coisas que nosso Sol,
+
+14
+00:00:35,540 --> 00:00:37,560
+apenas em menor quantidade.
+
+15
+00:00:37,920 --> 00:00:41,560
+A transição para estrelas começa
+com as anãs marrons:
+
+16
+00:00:41,640 --> 00:00:45,280
+estrelas fracassadas que são uma grande decepção para suas mães.
+
+17
+00:00:45,500 --> 00:00:49,340
+Elas tem entre 13 a 90 
+vezes a massa de Júpiter
+
+18
+00:00:49,620 --> 00:00:53,500
+Então mesmo se pegássemos 90 Júpiteres e jogássemos um no outro,
+
+19
+00:00:53,500 --> 00:00:55,300
+apesar de ser divertido
+de ver,
+
+20
+00:00:55,300 --> 00:00:57,540
+não seria suficiente para formar uma estrela.
+
+21
+00:00:58,000 --> 00:01:01,280
+Curiosamente,
+adicionar bastante massa a uma anã marrom
+
+22
+00:01:01,280 --> 00:01:02,780
+não a faz maior,
+
+23
+00:01:02,780 --> 00:01:05,099
+apenas torna o seu interior mais denso.
+
+24
+00:01:05,760 --> 00:01:08,060
+Isso aumenta a pressão no seu núcleo o suficiente
+
+25
+00:01:08,060 --> 00:01:11,540
+para fazer certas reações de fusão 
+nuclear ocorrerem mais lentamente,
+
+26
+00:01:11,540 --> 00:01:13,340
+e fazendo o objeto
+brilhar um pouco.
+
+27
+00:01:14,020 --> 00:01:16,979
+Portanto, anãs marrons são um tipo brilhante de gigantes gasosos,
+
+28
+00:01:17,120 --> 00:01:20,020
+que não se encaixam muito bem em nenhuma categoria.
+
+29
+00:01:20,520 --> 00:01:24,100
+Mas nós queremos falar de estrelas,
+não de aspirantes a estrelas que falharam,
+
+30
+00:01:24,180 --> 00:01:25,160
+então vamos seguir em frente.
+
+31
+00:01:26,580 --> 00:01:28,060
+ESTRELAS DA SEQUÊNCIA PRINCIPAL
+
+32
+00:01:29,100 --> 00:01:32,360
+Quando grandes bolas de gás passam de um certo limiar de massa,
+
+33
+00:01:32,700 --> 00:01:35,560
+Seus núcleos se tornam quentes e densos o suficiente para acenderem.
+
+34
+00:01:36,600 --> 00:01:39,580
+Hidrogênio se funde em hélio em seus núcleos,
+
+35
+00:01:40,100 --> 00:01:42,179
+liberando uma quantidade tremenda de energia.
+
+36
+00:01:42,760 --> 00:01:45,880
+Estrelas que fazem isso são chamadas de "Estrelas da Sequência Principal".
+
+37
+00:01:46,460 --> 00:01:48,640
+Quanto mais massiva uma estrela da sequência principal é,
+
+38
+00:01:48,780 --> 00:01:50,300
+mais quente e mais brilhante ela será
+
+39
+00:01:50,560 --> 00:01:51,860
+e mais curto é seu tempo de vida.
+
+40
+00:01:52,940 --> 00:01:55,360
+Assim que a fase de queimar hidrogênio acaba,
+
+41
+00:01:55,720 --> 00:01:56,640
+as estrelas crescem
+
+42
+00:01:57,180 --> 00:02:00,380
+até centenas de milhares de vezes seu tamanho original.
+
+43
+00:02:01,260 --> 00:02:05,240
+Mas essas fases gigantes duram apenas uma fração de suas vidas.
+
+44
+00:02:06,200 --> 00:02:10,300
+Então nós iremos comparar estrelas em estágios drasticamente diferentes de suas vidas.
+
+45
+00:02:10,960 --> 00:02:12,700
+Isso não as torna menos impressionantes,
+
+46
+00:02:13,120 --> 00:02:14,960
+mas talvez seja bom ter em mente
+
+47
+00:02:15,160 --> 00:02:17,480
+que vamos comparar "bebês" com "adultos".
+
+48
+00:02:18,400 --> 00:02:19,640
+Agora, voltemos ao começo.
+
+49
+00:02:20,300 --> 00:02:22,840
+As menores "estrelas de verdade" são as anãs vermelhas,
+
+50
+00:02:23,220 --> 00:02:25,660
+aproximadamente 100 vezes mais massivas que Júpiter.
+
+51
+00:02:25,960 --> 00:02:28,800
+Quase não são massivas o suficiente para fundir hidrogênio em hélio.
+
+52
+00:02:29,560 --> 00:02:33,140
+Como não são muito massivas, elas são pequenas, não muito quentes,
+
+53
+00:02:33,400 --> 00:02:34,540
+e brilham bem fracamente.
+
+54
+00:02:35,400 --> 00:02:39,360
+Elas são as únicas estrelas da sequência principal que não crescem quando morrem,
+
+55
+00:02:39,620 --> 00:02:41,240
+mas "se apagam".
+
+56
+00:02:42,520 --> 00:02:46,360
+Anãs vermelhas são de longe o tipo mais abundante de estrela no universo.
+
+57
+00:02:46,700 --> 00:02:48,959
+Como elas queimam seu combustível muito lentamente,
+
+58
+00:02:49,200 --> 00:02:52,000
+elas acabam durando até 10 trilhões de anos,
+
+59
+00:02:52,340 --> 00:02:55,340
+mil vezes a atual idade do universo.
+
+60
+00:02:55,940 --> 00:02:58,380
+Por exemplo, uma das estrelas mais próximas da Terra
+
+61
+00:02:58,600 --> 00:03:01,040
+é uma anã vermelha: a estrela de Barnard.
+
+62
+00:03:01,320 --> 00:03:03,820
+Mas ela brilha muito fracamente para ser vista sem um telescópio.
+
+63
+00:03:04,240 --> 00:03:07,080
+(Nós fizemos um vídeo inteiro sobre anãs vermelhas, caso queira aprender mais)
+
+64
+00:03:08,040 --> 00:03:10,700
+O próximo tipo são as estrelas parecidas com o nosso Sol.
+
+65
+00:03:11,160 --> 00:03:14,980
+Dizer que "o Sol domina o sistema solar" não está fazendo justiça para ele,
+
+66
+00:03:15,260 --> 00:03:19,160
+já que ele compõe 99,86% de toda a massa do sistema solar.
+
+67
+00:03:20,020 --> 00:03:23,140
+Ele queima e brilha muito mais intensamente do que as anãs vermelhas,
+
+68
+00:03:23,360 --> 00:03:26,360
+o que reduz sua vida para até 10 bilhões de anos.
+
+69
+00:03:26,960 --> 00:03:29,940
+O Sol é 7 vezes mais massivo do que a estrela de Barnard
+
+70
+00:03:30,320 --> 00:03:33,079
+mas isso o torna quase 300 vezes mais brilhante do que ela
+
+71
+00:03:33,280 --> 00:03:34,920
+e com o dobro de sua temperatura superficial.
+
+72
+00:03:36,260 --> 00:03:37,239
+Vamos ir além.
+
+73
+00:03:38,180 --> 00:03:43,120
+Pequenas mudanças na massa produzem grandes mudanças no brilho de estrelas da sequência principal.
+
+74
+00:03:44,000 --> 00:03:46,360
+A estrela mais brilhante do céu noturno, Sirius,
+
+75
+00:03:46,600 --> 00:03:47,900
+tem duas massas solares,
+
+76
+00:03:48,180 --> 00:03:51,020
+com um raio 1,7 vezes maior que o do Sol.
+
+77
+00:03:51,480 --> 00:03:54,920
+Mas sua superfície tem quase 10.000 °C,
+
+78
+00:03:55,200 --> 00:03:57,500
+o que a faz brilhar 25 vezes mais do que o Sol.
+
+79
+00:03:58,180 --> 00:04:02,240
+Queimar tão quente assim reduz sua vida em 4 vezes (comparada a do Sol)
+
+80
+00:04:02,480 --> 00:04:04,579
+para cerca de 2,5 bilhões de anos.
+
+81
+00:04:05,440 --> 00:04:08,140
+Estrelas com a massa de até 10 vezes a do Sol
+
+82
+00:04:08,340 --> 00:04:11,820
+têm temperaturas superficiais de aproximadamente 25.000 °C.
+
+83
+00:04:12,720 --> 00:04:15,680
+Beta Centauri contém duas dessas estrelas massivas,
+
+84
+00:04:16,019 --> 00:04:19,380
+cada uma brilhando com mais ou menos 20.000 vezes a potência solar.
+
+85
+00:04:19,920 --> 00:04:23,880
+Isso é muito poder, vindo de algo apenas 13 vezes maior.
+
+86
+00:04:24,280 --> 00:04:26,900
+Mas elas irão brilhar por cerca de 20 milhões de anos.
+
+87
+00:04:27,520 --> 00:04:30,599
+Gerações inteiras dessas estrelas azuis morrem
+
+88
+00:04:30,820 --> 00:04:33,580
+no tempo leva para o Sol  para orbitar a galáxia apenas uma vez.
+
+89
+00:04:34,800 --> 00:04:36,260
+Então, seria essa a fórmula?
+
+90
+00:04:36,760 --> 00:04:39,099
+"Quanto mais massiva a estrela, maior ela será"?
+
+91
+00:04:40,080 --> 00:04:43,659
+A estrela mais massiva que conhecemos é a R136a1.
+
+92
+00:04:44,520 --> 00:04:47,080
+Ela tem 315 massas solares
+
+93
+00:04:47,280 --> 00:04:49,900
+e é quase 9 milhões de vezes mais brilhante que o Sol.
+
+94
+00:04:50,680 --> 00:04:53,700
+E, ainda assim, apesar de sua tremenda massa e potência,
+
+95
+00:04:53,920 --> 00:04:56,560
+é apenas 30 vezes maior que o Sol.
+
+96
+00:04:57,400 --> 00:05:01,359
+A estrela é tão extrema, e se mantém tão mal unida pela gravidade,
+
+97
+00:05:01,580 --> 00:05:06,599
+que perde 321 milhares de bilhões de toneladas de matéria através de seu vento estelar...
+
+98
+00:05:07,220 --> 00:05:08,580
+...a cada segundo!
+
+99
+00:05:09,560 --> 00:05:15,180
+Estrelas desse tipo são extremamente raras, pois elas quebram um pouco as leis de formação estelar um pouco.
+
+100
+00:05:15,880 --> 00:05:20,159
+Quando estrelas supermassivas nascem, elas queimam e brilham intensamente,
+
+101
+00:05:20,440 --> 00:05:23,719
+e isso afasta qualquer gás "extra" que poderia torná-las mais massivas.
+
+102
+00:05:24,580 --> 00:05:28,719
+Então, o máximo que tal estrela pode chegar é até 150 vezes a massa do Sol.
+
+103
+00:05:29,660 --> 00:05:33,880
+Estrelas como a R136a1 são provavelmente formadas através da fusão de
+
+104
+00:05:33,940 --> 00:05:36,719
+inúmeras estrelas altamente massivas em regiões de densa formação estelar,
+
+105
+00:05:37,060 --> 00:05:40,900
+e queimam o hidrogênio de seus núcleos em alguns milhões de anos.
+
+106
+00:05:41,360 --> 00:05:44,200
+Então isso significa que elas são raras e de vida curta.
+
+107
+00:05:44,980 --> 00:05:48,360
+A partir daqui, o truque para ficar maior não é acrescentar mais massa,
+
+108
+00:05:48,860 --> 00:05:51,660
+para fazer as maiores estrelas, precisamos matá-las.
+
+109
+00:05:53,380 --> 00:05:54,340
+GIGANTES VERMELHAS
+
+110
+00:05:55,420 --> 00:05:58,880
+Quando estrelas da sequência principal começam a esgotar o hidrogênio de seu núcleo,
+
+111
+00:05:59,160 --> 00:06:01,880
+eles se contrai, o que o torna mais quente e denso.
+
+112
+00:06:02,540 --> 00:06:04,900
+Isso leva a uma fusão mais quente e mais rápida,
+
+113
+00:06:05,100 --> 00:06:06,920
+o que causa uma força contra a gravidade,
+
+114
+00:06:07,140 --> 00:06:10,200
+e faz com que as camadas mais externas se inchem e gerem uma superfície gigante.
+
+115
+00:06:11,000 --> 00:06:14,020
+E tais estrelas se tornam verdadeiras gigantes.
+
+116
+00:06:14,880 --> 00:06:16,620
+Por exemplo, Gacrux.
+
+117
+00:06:17,240 --> 00:06:19,620
+Apenas 30% mais massiva do que o Sol,
+
+118
+00:06:19,920 --> 00:06:23,260
+ela engloba 84 vezes o raio solar.
+
+119
+00:06:23,840 --> 00:06:26,520
+Ainda assim, quando o Sol entrar na fase final de sua vida,
+
+120
+00:06:26,840 --> 00:06:28,979
+ele crescerá e se tornará ainda maior.
+
+121
+00:06:29,700 --> 00:06:31,900
+200 vezes o seu raio atual!
+
+122
+00:06:32,540 --> 00:06:36,320
+Na fase final de sua vida, ele engolirá os planetas mais próximos.
+
+123
+00:06:37,040 --> 00:06:38,520
+E se você acha isso impressionante,
+
+124
+00:06:38,780 --> 00:06:41,719
+vamos finalmente conhecer as maiores estrelas do universo:
+
+125
+00:06:42,380 --> 00:06:43,260
+HIPERGIGANTES
+
+126
+00:06:44,580 --> 00:06:48,760
+Hipergigantes são a fase gigante das estrelas mais massivas do universo.
+
+127
+00:06:49,580 --> 00:06:54,520
+Elas têm uma enorme área superficial, que pode emitir uma quantidade monstruosa de luz.
+
+128
+00:06:55,360 --> 00:06:58,940
+Sendo tão grandes, que estão basicamente assoprando-se,
+
+129
+00:06:59,220 --> 00:07:03,200
+uma vez que a gravidade na superfície é muito fraca para manter sua quente massa,
+
+130
+00:07:03,500 --> 00:07:06,240
+que acaba escapando por meio de poderosos ventos estelares.
+
+131
+00:07:07,060 --> 00:07:09,680
+A Estrela da Pistola tem 25 massas solares,
+
+132
+00:07:09,920 --> 00:07:12,360
+mas 300 vezes o raio solar.
+
+133
+00:07:12,580 --> 00:07:16,400
+É uma hipergigante azul cujo nome se deve à sua intensa e energética luz estelar azul.
+
+134
+00:07:17,180 --> 00:07:20,240
+É difícil dizer exatamente quanto tempo a Estrela da Pistola viverá,
+
+135
+00:07:20,680 --> 00:07:22,820
+mas provavelmente, apenas alguns milhões de anos.
+
+136
+00:07:23,580 --> 00:07:25,440
+Ainda maiores do que as hipergigantes azuis
+
+137
+00:07:25,740 --> 00:07:27,100
+são as hipergigantes amarelas.
+
+138
+00:07:27,600 --> 00:07:31,220
+A mais estudada é Rho Cassiopeiae, uma estrela tão brilhante
+
+139
+00:07:31,360 --> 00:07:35,360
+que pode ser vista a olho nu, apesar de estar a milhares de anos-luz da Terra.
+
+140
+00:07:36,240 --> 00:07:38,000
+Com 40 massas solares,
+
+141
+00:07:38,160 --> 00:07:41,560
+essa estrela tem aproximadamente 500 raios solares,
+
+142
+00:07:42,020 --> 00:07:44,400
+e é 500.000 vezes mais brilhante.
+
+143
+00:07:44,940 --> 00:07:48,660
+Se a Terra estivesse tão próxima à Rho Cassiopeiae quanto está do Sol,
+
+144
+00:07:48,920 --> 00:07:51,980
+ela seria incinerada, e você estaria bem morto.
+
+145
+00:07:53,280 --> 00:07:55,559
+Hipergigantes amarelas são, no entanto, muito raras;
+
+146
+00:07:55,900 --> 00:07:57,000
+apenas 15 delas são conhecidas.
+
+147
+00:07:58,000 --> 00:08:01,580
+Isso significa que elas provavelmente são um estágio intermediário de curta duração
+
+148
+00:08:01,920 --> 00:08:05,860
+enquanto uma estrela cresce ou encolhe em outras fases de hipergigantes.
+
+149
+00:08:07,160 --> 00:08:11,000
+Com as hipergigantes vermelhas, nós chegamos nas maiores estrelas que conhecemos,
+
+150
+00:08:11,380 --> 00:08:13,880
+provavelmente as maiores estrelas sequer possíveis.
+
+151
+00:08:14,660 --> 00:08:17,740
+Então, quem é o vencedor desta insana competição?
+
+152
+00:08:18,700 --> 00:08:20,680
+Bem, a verdade é que nós não sabemos.
+
+153
+00:08:22,080 --> 00:08:25,520
+Hipergigantes vermelhas são extremamente brilhantes e distantes de nós,
+
+154
+00:08:25,920 --> 00:08:28,880
+o que significa que mesmo pequenas incertezas em nossas medições
+
+155
+00:08:29,220 --> 00:08:31,920
+podem nos fornecer uma grande margem de erro para o seu tamanho.
+
+156
+00:08:32,559 --> 00:08:36,719
+Pior ainda, hipergigantes vermelhas são monstros do tamanho de sistemas solares
+
+157
+00:08:36,900 --> 00:08:38,439
+e que estão se auto-destruindo,
+
+158
+00:08:38,679 --> 00:08:40,159
+o que as torna mais difíceis de serem medidas.
+
+159
+00:08:41,080 --> 00:08:44,180
+Conforme progredimos na ciência e melhoramos nossos instrumentos,
+
+160
+00:08:44,420 --> 00:08:46,979
+a maior estrela que conhecemos, seja ela qual for, irá outra.
+
+161
+00:08:47,500 --> 00:08:50,900
+A estrela que atualmente acreditamos estar dentre as maiores do universo
+
+162
+00:08:51,060 --> 00:08:52,739
+é Stephenson 2-18.
+
+163
+00:08:53,320 --> 00:08:55,580
+Ela possivelmente nasceu como uma estrela da sequência principal
+
+164
+00:08:55,660 --> 00:08:57,819
+com algumas dezenas de massas solares
+
+165
+00:08:58,140 --> 00:09:00,420
+e provavelmente já deve ter perdido metade de sua massa por hoje.
+
+166
+00:09:01,360 --> 00:09:06,420
+Tipicamente, hipergigantes vermelhas tem 1.500 vezes o tamanho do Sol,
+
+167
+00:09:06,760 --> 00:09:13,420
+mas o máximo que já se estimou indica que a Stephenson 2-18 tem cerca de 2.150 vezes o raio do sol,
+
+168
+00:09:13,560 --> 00:09:17,560
+com um brilho 500.000 mais forte que o do Sol.
+
+169
+00:09:18,740 --> 00:09:21,820
+Em comparação, o Sol parece um grão de poeira.
+
+170
+00:09:22,820 --> 00:09:26,200
+Nossos cérebros não conseguem sequer compreender tal escala.
+
+171
+00:09:27,000 --> 00:09:31,740
+Mesmo na velocidade da luz, levaria-se 8,7 horas para viajar ao seu redor uma única vez.
+
+172
+00:09:32,240 --> 00:09:35,940
+O avião mais rápido da Terra levaria 500 anos para tal.
+
+173
+00:09:36,780 --> 00:09:40,380
+Se colocada no lugar do Sol, ela alcançaria a órbita de Saturno
+
+174
+00:09:41,140 --> 00:09:44,280
+Com o passar do tempo, ela provavelmente perderia ainda mais massa
+
+175
+00:09:44,520 --> 00:09:47,800
+e encolheria em outra forma de hipergigante, mais quente,
+
+176
+00:09:48,020 --> 00:09:50,120
+acumulando elementos pesados em seu núcleo,
+
+177
+00:09:50,380 --> 00:09:53,880
+antes de finalmente explodir em uma supernova resultada do colapso de seu núcleo,
+
+178
+00:09:54,660 --> 00:09:56,780
+devolvendo o seu gás de volta à galáxia.
+
+179
+00:09:57,540 --> 00:10:02,380
+Esse gás, então, seguirá em frente e formará novas gerações de estrelas de todos os tamanhos.
+
+180
+00:10:03,120 --> 00:10:05,900
+Reiniciando o ciclo de nascimento e de morte
+
+181
+00:10:06,220 --> 00:10:07,740
+iluminando e provendo de energia o nosso universo.
+
+182
+00:10:08,960 --> 00:10:12,480
+Vamos fazer essa jornada de novo, mas dessa vez sem a falação.
+
+183
+00:10:13,580 --> 00:10:14,640
+O universo é grande,
+
+184
+00:10:15,380 --> 00:10:17,140
+e há inúmeras coisas grandes nele...
+
+185
+00:10:37,300 --> 00:10:39,620
+Se você quiser brincar um pouco mais com coisas sobre tamanho,
+
+186
+00:10:39,620 --> 00:10:41,120
+temos boas notícias.
+
+187
+00:10:41,380 --> 00:10:42,580
+nós criamos nosso primeiro aplicativo:
+
+188
+00:10:42,960 --> 00:10:44,280
+"Universe in a Nutshell"
+
+189
+00:10:44,720 --> 00:10:47,480
+junto com Tim Urban, a mente por trás de "Wait but Why"
+
+190
+00:10:48,340 --> 00:10:51,080
+você irá poder ver as coisas mais pequenas que existem,
+
+191
+00:10:51,340 --> 00:10:54,500
+passando pelo coronavírus, células humanas e dinossauros,
+
+192
+00:10:54,760 --> 00:10:57,260
+até as maiores estrelas, galáxias,
+
+193
+00:10:57,420 --> 00:11:00,280
+e se encantar com todo o universo observável.
+
+194
+00:11:00,980 --> 00:11:06,120
+você vai poder aprender mais sobre cada objeto, ou simplesmente contemplar o tamanho dele
+
+195
+00:11:06,440 --> 00:11:10,380
+o aplicativo é inspirado pelo site: "Scale of the Universe" de HTwins
+
+196
+00:11:10,520 --> 00:11:13,060
+que nós gastamos um bom tempo quando
+ foi lançado a alguns anos atrás
+
+197
+00:11:13,280 --> 00:11:17,680
+e sentimos que estava na hora de criar uma versão "Wait but Why" e Kurzgesagt.
+
+198
+00:11:18,060 --> 00:11:19,619
+você pode adquirí-lo em sua loja de 
+aplicativos (Apple Store, Play Store, etc...)
+
+199
+00:11:19,620 --> 00:11:22,160
+sem compras dentro do 
+aplicativo e livre de anúncios,
+
+200
+00:11:22,460 --> 00:11:24,300
+com todas as atualizações futuras inclusas.
+
+201
+00:11:24,780 --> 00:11:26,420
+E já que esse é nosso primeiro aplicativo,
+
+202
+00:11:26,660 --> 00:11:29,819
+adoraríamos que vocês nos dessem sua avaliação para que possamos ir melhorando conforme o tempo;
+
+203
+00:11:30,240 --> 00:11:34,120
+se isso parece bom pra você, baixe 
+o aplicativo "Universe in a Nutshell" agora
+
+204
+00:11:34,200 --> 00:11:36,860
+e deixe uma avaliação de cinco
+ estrelas se você quiser nos ajudar.
+
+205
+00:11:37,340 --> 00:11:41,600
+Kurzgesagt e todos os projetos que fazemos são em sua maioria consolidados por espectadores
+
+206
+00:11:41,920 --> 00:11:42,579
+como você;
+
+207
+00:11:43,080 --> 00:11:46,940
+então, se você gostar do aplicativo, nós 
+faremos mais coisas digitais no futuro
+
+208
+00:11:47,260 --> 00:11:49,100
+muito obrigado por assistir!
+

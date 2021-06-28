@@ -22,6 +22,10 @@ import {
     subtitleInit,
     searchInput,
     chromecast,
+    initChromecastAnimation,
+    progressBoxManipulation,
+    disableLabelsTrigger,
+    setResolution,
 } from './puravita-utils';
 
 window.addEventListener('load', () => {
@@ -32,6 +36,7 @@ window.addEventListener('load', () => {
     const progressel = document.getElementById('puravita-progress');
     const progressbar = document.getElementById('puravita-progressbar');
     const progressbuffer = document.getElementById('puravita-progressbuffer');
+    const progressBox = document.getElementById('puravita-progressbar-box');
     const timenumber = document.getElementById('puravita-time');
     const volumeinput = document.getElementById('puravita-volume');
     const playratelist = document.getElementById('puravita-rate-list');
@@ -57,18 +62,27 @@ window.addEventListener('load', () => {
     const loading = document.getElementById('puravita-loading');
     const inputSearch = document.getElementById('puravita-search-input');
     const controlSearch = document.getElementById('puravita-control-search');
-    const buttonChromecast = document.getElementById('puravita-chromecast');
+    const buttonChromecast = document.getElementById('puravita-chromecast-button');
+    const chromecastAnimation = document.getElementById('puravita-chromecast');
+    const resolutionList = document.getElementById('resolution-list');
+    const resolutionLabel = document.getElementById('resolution-label');
+
+    const listResolutions = new Map();
+    listResolutions.set('cutesexyrobutts-resolution-720p', 'https://mizzzael.github.io/puravita-player/assets/video/The%20Largest%20Star%20in%20the%20Universe%20–%20Size%20Comparison%20720p.mp4');
+    listResolutions.set('cutesexyrobutts-resolution-480p', 'https://mizzzael.github.io/puravita-player/assets/video/The%20Largest%20Star%20in%20the%20Universe%20–%20Size%20Comparison%20480p.mp4');
 
     defineDimension(targetPlayer, player);
     setInputSizeSubtitle((video as HTMLVideoElement), (subtitleSize as HTMLInputElement), subtitle);
     setInputsColor((video as HTMLVideoElement), subtitleColorsInput, subtitle);
     playrate(playratelabel, playratelist, video);
     controlInputsToggle(player, nameVideo);
-    progress(video, progressbar, timenumber);
+    progress(video, progressbar, timenumber, loading);
     setProgressBufferPercentage(video, progressbuffer);
     playPause(video, buttonPlay);
     countTime(timenumber, 0, video.duration);
     volume(video, volumeinput);
+    disableLabelsTrigger((video as HTMLVideoElement), player);
+    setResolution((video as HTMLVideoElement), resolutionList, listResolutions, resolutionLabel);
     sidebarToggle(
         video,
         sidebarbutton,
@@ -104,9 +118,10 @@ window.addEventListener('load', () => {
             avatar: 'assets/images/avatar/1.webp',
             username: 'o inominável',
         });
-    iniLoadingAnimation(loading);
-
-    loadSubtitles(video, 'https://mizzzael.github.io/puravita-player/assets/subtitles/legenda.srt');
+    iniLoadingAnimation((video as HTMLVideoElement), loading);
+    initChromecastAnimation((video as HTMLVideoElement), chromecastAnimation);
+    loadSubtitles(video, 'https://mizzzael.github.io/puravita-player/assets/subtitles/The%20Largest%20Star%20in%20the%20Universe%20–%20Size%20Comparison.por.por.srt');
+    progressBoxManipulation((video as HTMLVideoElement), progressBox);
     subtitleInit(video, subtitle);
     searchInput(
         (video as HTMLVideoElement),
@@ -143,5 +158,5 @@ window.addEventListener('load', () => {
         });
         hideLoading(loading);
     });
-    chromecast(buttonChromecast);
+    chromecast((video as HTMLVideoElement), buttonChromecast);
 }, false);

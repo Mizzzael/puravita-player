@@ -81,6 +81,7 @@
             font-size 0.9rem
             font-weight bold
             line-height 0.9rem
+            cursor pointer
         &_options
             background-color #fff
             position absolute
@@ -130,7 +131,22 @@
         height 34px
         & svg
             width 16px
-            margin 0 auto    
+            margin 0 auto  
+    &_chomecast_button
+        &_active
+            position absolute
+            left 0
+            right 0
+            top 0
+            bottom 0
+            margin auto !important
+            opacity 0
+            transition opacity 220ms ease
+    &_chomecast_button
+        &.is-active
+            background-color #ffffff
+        &.is-active &_active
+            opacity 1
     &_subtitles_button
         position relative
         &.is-active
@@ -172,11 +188,14 @@
         top 0
         right 0
         opacity 0
+        height 34px
+        line-height 34px
     &_config_button_input-box
         cursor pointer
         &_text
             padding 0 0.15rem
             font-size 0.75rem
+            cursor pointer
         &_options
             background-color #fff
             position absolute
@@ -194,6 +213,9 @@
             transition color 120ms ease, opacity 320ms ease
             & > label
                 cursor pointer
+                display block
+                &.is-active
+                    color #6c5ce7
             &:hover
                 color rgba(0,0,0, 0.5)
         
